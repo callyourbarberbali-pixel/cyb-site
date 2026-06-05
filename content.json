@@ -3,14 +3,14 @@
   "instagram": "cyb.barber",
   "bookingMessage": "Hi CYB! I'd like to book a cut.\n\nService: \nArea / address: \nPreferred day & time: ",
   "bio": [
-    "Years on the floor, thousands of fades — now mobile around Ubud. The kind of barber you'd trust with your hair and your stories.",
+    "Years on the floor, thousands of fades, now mobile around Ubud. The kind of barber you'd trust with your hair and your stories.",
     "Add a short bio here: where they trained, their signature cut, why they went mobile. People book the person as much as the service."
   ],
   "areas": ["Ubud Centre", "Penestanan", "Tegallalang", "Pejeng", "Mas", "Nyuh Kuning", "& around"],
   "services": [
     {"name": "Haircut", "price": "Rp 150K", "description": "Consultation, cut and style with premium products. Finished with a complimentary hot-lather neck shave."},
     {"name": "Beard Trim", "price": "Rp 90K", "description": "Shape-up, straight-razor edging and a hot & cold towel combo, finished with beard oil or balm."},
-    {"name": "Haircut & Beard", "price": "Rp 210K", "description": "The full reset. Everything in the haircut, plus a complete beard sculpt — fresh head to chin."},
+    {"name": "Haircut & Beard", "price": "Rp 210K", "description": "The full reset. Everything in the haircut, plus a complete beard sculpt, fresh head to chin."},
     {"name": "Hot Towel Shave", "price": "Rp 130K", "description": "Pre-shave oil, hot-towel steam and a close straight-razor shave, sealed with a cooling tonic."}
   ],
   "gallery": [

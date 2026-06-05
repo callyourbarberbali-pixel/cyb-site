@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CYB — Mobile Barbershop · Bali</title>
+<title>CYB · Mobile Barbershop · Bali</title>
 <meta name="description" content="CYB is a premium mobile barbershop that comes to you across Bali." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +128,7 @@ section{padding:116px 0;position:relative}
 .story h2{font-size:clamp(2.4rem,5vw,3.6rem);margin:8px 0 24px}
 .story p{color:var(--muted);margin-bottom:18px}
 
-/* GALLERY — uniform responsive grid */
+/* GALLERY: uniform responsive grid */
 .g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .g-tile{position:relative;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;display:block;margin:0}
 .g-tile img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:grayscale(65%) contrast(1.05);transition:transform .7s ease,filter .6s ease}
@@ -147,8 +147,10 @@ section{padding:116px 0;position:relative}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px 70px;max-width:920px;margin:0 auto}
 .svc{text-align:center;cursor:pointer;transition:transform .4s}
 .svc:hover{transform:translateY(-7px)}
-.svc .num{font-family:var(--f-disp);font-size:4.4rem;color:var(--gold);line-height:.8;margin-bottom:10px;transition:.4s}
-.svc:hover .num{color:var(--gold-soft);text-shadow:0 0 26px rgba(199,154,90,.4)}
+.svc .num{font-family:var(--f-disp);font-size:5.4rem;color:var(--gold);line-height:.8;margin-bottom:12px;transition:.4s;display:inline-block;transform:skewX(-9deg)}
+.svc .num::before{content:"#";color:var(--sage);margin-right:.04em;font-size:.82em;transition:.4s}
+.svc:hover .num{color:var(--gold-soft);text-shadow:0 0 26px rgba(199,154,90,.4);transform:skewX(-9deg) translateY(-2px)}
+.svc:hover .num::before{color:var(--sage-soft)}
 .svc h3{font-family:var(--f-body);text-transform:uppercase;letter-spacing:.2em;font-size:.9rem;font-weight:600;color:var(--cream);margin-bottom:8px;display:inline-block;position:relative;padding-bottom:8px}
 .svc h3::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:1px;background:var(--gold);transition:.4s}
 .svc:hover h3::after{width:42px;left:calc(50% - 21px)}
@@ -158,9 +160,13 @@ section{padding:116px 0;position:relative}
 /* BARBER */
 .barber-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
 .barber-figure{position:relative;width:100%;max-width:400px;margin:0 auto}
-.barber-figure::before{content:"";position:absolute;left:20px;top:20px;right:-20px;bottom:-20px;border:1px solid var(--gold);z-index:0;transition:.5s}
-.barber-figure:hover::before{left:13px;top:13px;right:-13px;bottom:-13px}
-.barber-figure img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(28%) contrast(1.03);display:block;border:1px solid var(--line)}
+/* art-deco cut-corner frame: gold edge > black mat > thin gold line > photo */
+.barber-frame,.barber-mat,.barber-line{display:block;clip-path:polygon(var(--c) 0,calc(100% - var(--c)) 0,100% var(--c),100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,var(--c) 100%,0 calc(100% - var(--c)),0 var(--c))}
+.barber-frame{--c:24px;padding:5px;background:linear-gradient(135deg,#eccb8d,#c79a5a 42%,#8a6a32 64%,#e3c184);filter:drop-shadow(0 18px 42px rgba(0,0,0,.55));transition:transform .5s}
+.barber-figure:hover .barber-frame{transform:translateY(-5px)}
+.barber-mat{--c:19px;padding:9px;background:#0b0a09}
+.barber-line{--c:10px;padding:3px;background:linear-gradient(135deg,#eccb8d,#c79a5a 50%,#9a7838)}
+.barber-figure img{--c:7px;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(22%) contrast(1.04);clip-path:polygon(var(--c) 0,calc(100% - var(--c)) 0,100% var(--c),100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,var(--c) 100%,0 calc(100% - var(--c)),0 var(--c))}
 .barber-copy h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin:8px 0 22px}
 .barber-copy p{color:var(--muted);margin-bottom:16px}
 
@@ -291,7 +297,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   </div>
   <div class="accent">Your Personal</div>
   <h1 class="display mask"><span>Barbershop</span></h1>
-  <p class="lead">CYB brings the barbershop to you — a finely tailored cut and hot-towel finish at your home, villa or hotel. No traffic, no waiting room. Just your chair, your time, sharp work.</p>
+  <p class="lead">CYB brings the barbershop to you: a finely tailored cut and hot-towel finish at your home, villa or hotel. No traffic, no waiting room. Just your chair, your time, sharp work.</p>
   <a href="#" class="book-btn js-book">Book an Appointment</a>
   </div>
   <div class="scroll-cue"><div class="eyebrow">Scroll</div><span></span></div>
@@ -316,15 +322,15 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   <div class="story-grid">
     <div class="story-emblem reveal">
       <div class="monogram-wrapper">
-        <img class="mono-ring" id="monoRing" src="images/cyb-tagline.svg" alt="CYB — Bali Barber · Sharp Cuts · At Your Home">
+        <img class="mono-ring" id="monoRing" src="images/cyb-tagline.svg" alt="CYB · Bali Barber · Sharp Cuts · At Your Home">
         <img class="mono-mark" src="images/cyb-logo.png" alt="CYB monogram">
       </div>
     </div>
     <div class="reveal" style="--d:.12s">
       <div class="eyebrow">Story</div>
       <h2 class="h-disp">The chair comes to you.</h2>
-      <p>CYB started with a simple idea: the best cut shouldn't depend on a queue or a commute. So the shop goes mobile — a full kit, a fresh towel, and a barber who shows up at your door, on schedule, every time.</p>
-      <p>Whether it's a villa above the Ubud rice fields, a guesthouse in Penestanan, or a retreat in Tegallalang, you get the same unhurried, premium experience you'd expect from a proper chair — minus everything that gets in the way of it.</p>
+      <p>CYB started with a simple idea: the best cut shouldn't depend on a queue or a commute. So the shop goes mobile, with a full kit, a fresh towel, and a barber who shows up at your door, on schedule, every time.</p>
+      <p>Whether it's a villa above the Ubud rice fields, a guesthouse in Penestanan, or a retreat in Tegallalang, you get the same unhurried, premium experience you'd expect from a proper chair, minus everything that gets in the way of it.</p>
       <p>One barber. Full attention. Your space, your music, your time.</p>
     </div>
   </div>
@@ -383,12 +389,12 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <div class="svc-head reveal">
       <div class="eyebrow">Services</div>
       <h2 class="h-disp">Every cut, dialed in.</h2>
-      <p>First-rate haircuts, beard work and hot-towel shaves — brought to your door. By appointment. Travel within the service area included.</p>
+      <p>First-rate haircuts, beard work and hot-towel shaves, brought to your door. By appointment. Travel within the service area included.</p>
     </div>
     <div class="svc-grid">
       <div class="svc js-book reveal" data-svc="Haircut"><div class="num">1</div><h3>Haircut</h3><div class="price">Rp 150K</div><p>Consultation, cut and style with premium products. Finished with a complimentary hot-lather neck shave.</p></div>
       <div class="svc js-book reveal" data-svc="Beard Trim" style="--d:.1s"><div class="num">2</div><h3>Beard Trim</h3><div class="price">Rp 90K</div><p>Shape-up, straight-razor edging and a hot &amp; cold towel combo, finished with beard oil or balm.</p></div>
-      <div class="svc js-book reveal" data-svc="Haircut &amp; Beard" style="--d:.15s"><div class="num">3</div><h3>Haircut &amp; Beard</h3><div class="price">Rp 210K</div><p>The full reset. Everything in the haircut, plus a complete beard sculpt — fresh head to chin.</p></div>
+      <div class="svc js-book reveal" data-svc="Haircut &amp; Beard" style="--d:.15s"><div class="num">3</div><h3>Haircut &amp; Beard</h3><div class="price">Rp 210K</div><p>The full reset. Everything in the haircut, plus a complete beard sculpt, fresh head to chin.</p></div>
       <div class="svc js-book reveal" data-svc="Hot Towel Shave" style="--d:.2s"><div class="num">4</div><h3>Hot Towel Shave</h3><div class="price">Rp 130K</div><p>Pre-shave oil, hot-towel steam and a close straight-razor shave, sealed with a cooling tonic.</p></div>
     </div>
   </div>
@@ -397,12 +403,12 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <!-- BARBER -->
 <section class="wrap" id="barber">
   <div class="barber-grid">
-    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg" alt="Your CYB barber"></figure></div>
+    <div class="reveal"><figure class="barber-figure"><span class="barber-frame"><span class="barber-mat"><span class="barber-line"><img src="images/barber.jpg" alt="Your CYB barber"></span></span></span></figure></div>
     <div class="barber-copy reveal" style="--d:.12s">
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
       <div class="barber-bio">
-      <p>Years on the floor, thousands of fades — now mobile around Ubud. The kind of barber you'd trust with your hair and your stories.</p>
+      <p>Years on the floor, thousands of fades, now mobile around Ubud. The kind of barber you'd trust with your hair and your stories.</p>
       <p>Add a short bio here: where they trained, their signature cut, why they went mobile. People book the person as much as the service.</p>
       </div>
       <a href="#" class="book-btn js-book">Book with CYB</a>
@@ -418,7 +424,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
         <div class="eyebrow">Where We Go</div>
         <h2 class="h-disp">Around Ubud.</h2>
         <div class="area-list"><span>Ubud Centre</span><span>Penestanan</span><span>Tegallalang</span><span>Pejeng</span><span>Mas</span><span>Nyuh Kuning</span><span>&amp; around</span></div>
-        <div class="info-row"><span class="lbl">Outside the zone?</span><p>Message us — most areas are covered for a small travel fee.</p></div>
+        <div class="info-row"><span class="lbl">Outside the zone?</span><p>Message us. Most areas are covered for a small travel fee.</p></div>
         <div class="info-row"><span class="lbl">Instagram</span><a href="#" class="js-ig">@cyb.barber</a></div>
         <div class="info-row"><span class="lbl">WhatsApp</span><a href="#" class="js-book">Tap to book →</a></div>
       </div>
