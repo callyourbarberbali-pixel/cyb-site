@@ -259,15 +259,11 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 /* CRAFT / RAZOR REVEAL */
 .craft{background:var(--bg);overflow:hidden}
-.craft-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.craft-copy h2{font-size:clamp(2.4rem,5vw,3.6rem);margin:10px 0 20px}
-.craft-copy p{color:var(--muted);max-width:430px;margin-bottom:16px}
 .razor-stage{display:flex;justify-content:center}
-.razor-rig{position:relative;width:min(540px,84vw);aspect-ratio:1/1;margin:0 auto}
+.razor-rig{position:relative;width:min(660px,92vw);aspect-ratio:1/1;margin:0 auto}
 .razor-rig img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain}
-.razor-handle{z-index:1;filter:drop-shadow(0 22px 36px rgba(0,0,0,.55))}
-.razor-blade{left:-8.01%;top:-2.73%;transform-origin:78.125% 14.648%;transform:rotate(-170deg);will-change:transform;z-index:2}
-@media(max-width:820px){.craft-inner{grid-template-columns:1fr;gap:18px;text-align:center}.craft-copy p{margin-left:auto;margin-right:auto}.razor-rig{width:min(440px,82vw)}}
+.razor-handle{z-index:1;filter:drop-shadow(0 26px 44px rgba(0,0,0,.6))}
+.razor-blade{left:.49%;top:.29%;transform-origin:72.266% 16.797%;transform:rotate(-160deg);will-change:transform;z-index:2}
 @media(prefers-reduced-motion:reduce){.razor-blade{transform:none!important}}
 
 /* LOGO (static) */
@@ -473,13 +469,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <!-- CRAFT / RAZOR REVEAL -->
 <section class="craft" id="craft">
-  <div class="wrap craft-inner">
-    <div class="craft-copy reveal">
-      <div class="eyebrow">The CYB Mark</div>
-      <h2 class="h-disp">Engraved in steel.</h2>
-      <p>Every cut carries the mark. The same edge, the same monogram, behind every fade, line-up and shave we bring across Bali.</p>
-      <p style="color:var(--gold-soft);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase">Scroll to unfold</p>
-    </div>
+  <div class="wrap">
     <div class="razor-stage">
       <div class="razor-rig" id="razorRig">
         <img class="razor-handle" src="images/razor-handle.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
@@ -638,9 +628,9 @@ function updateRazor(){
   if(!razorRig||!razorBlade||reduceMotion)return;
   const r=razorRig.getBoundingClientRect();
   const vh=innerHeight||document.documentElement.clientHeight;
-  let p=(vh-r.top)/(vh*0.85);
+  let p=(vh-r.top)/(vh*0.7);
   p=Math.max(0,Math.min(1,p));
-  razorBlade.style.transform="rotate("+(-170*(1-p))+"deg)";
+  razorBlade.style.transform="rotate("+(-160*(1-p))+"deg)";
 }
 const mb=document.getElementById("menuBtn"),nl=document.getElementById("navlinks");
 const menuOpen=()=>nl.classList.contains("open");
