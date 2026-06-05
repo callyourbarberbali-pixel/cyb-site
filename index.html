@@ -110,6 +110,9 @@ section{padding:116px 0;position:relative}
 .story-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
 .story-emblem{display:flex;justify-content:center;align-items:center}
 .story-emblem svg{width:290px;height:290px;opacity:.94}
+.monogram-wrapper{position:relative;width:300px;height:300px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.mono-ring{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;will-change:transform}
+.mono-mark{position:relative;z-index:1;width:58%;height:auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.5))}
 .story h2{font-size:clamp(2.4rem,5vw,3.6rem);margin:8px 0 24px}
 .story p{color:var(--muted);margin-bottom:18px}
 
@@ -209,6 +212,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   .sec-divider span{max-width:120px}
   .story-grid,.barber-grid,.contact-grid{grid-template-columns:1fr;gap:42px}
   .story-emblem svg{width:180px;height:180px}
+  .monogram-wrapper{width:220px;height:220px}
   .svc-grid{gap:46px 40px}
   .g-grid{column-count:2}
   .barber-figure{max-width:340px}
@@ -290,13 +294,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <section class="story wrap" id="story">
   <div class="story-grid">
     <div class="story-emblem reveal">
-      <svg viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="95" stroke="var(--gold)" stroke-width="1"/>
-        <circle cx="100" cy="100" r="78" stroke="var(--sage)" stroke-width=".6" opacity=".5"/>
-        <defs><path id="circ2" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-        <text font-family="Archivo,sans-serif" font-weight="600" font-size="10" letter-spacing="5" fill="var(--gold)"><textPath href="#circ2" startOffset="3%">· SHARP CUTS · DELIVERED · ON YOUR TIME ·</textPath></text>
-        <text x="100" y="122" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="70" fill="var(--sage)">CYB</text>
-      </svg>
+      <div class="monogram-wrapper">
+        <img class="mono-ring" id="monoRing" src="images/cyb-tagline.png" alt="CYB — Bali Barber · Sharp Cuts · At Your Home">
+        <img class="mono-mark" src="images/cyb-logo.png" alt="CYB monogram">
+      </div>
     </div>
     <div class="reveal" style="--d:.12s">
       <div class="eyebrow">Story</div>
@@ -469,7 +470,8 @@ function applyContent(c){
 wireLinks();
 
 const nav=document.getElementById("nav");let lastY=0;
-addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("progress").style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+"%";nav.classList.toggle("scrolled",scrollY>40);if(scrollY>lastY&&scrollY>360)nav.classList.add("hide");else nav.classList.remove("hide");lastY=scrollY});
+const monoRing=document.getElementById("monoRing");
+addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("progress").style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+"%";nav.classList.toggle("scrolled",scrollY>40);if(scrollY>lastY&&scrollY>360)nav.classList.add("hide");else nav.classList.remove("hide");lastY=scrollY;if(monoRing)monoRing.style.transform="rotate("+(scrollY*0.06)+"deg)";});
 const mb=document.getElementById("menuBtn"),nl=document.getElementById("navlinks");
 mb.addEventListener("click",()=>{mb.classList.toggle("open");nl.classList.toggle("open")});
 nl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mb.classList.remove("open");nl.classList.remove("open")}));
