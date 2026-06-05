@@ -6,6 +6,7 @@
 <title>CYB · Mobile Barbershop · Bali</title>
 <meta name="description" content="CYB is a premium mobile barbershop that comes to you across Bali." />
 
+<link rel="preload" as="image" href="images/cyb-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- FONT SET: Bebas Neue (display) + Archivo (body). Swap in :root below to re-skin type. -->
@@ -290,7 +291,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   </div>
   <div class="nav-main">
     <a href="#top" class="brandmark" aria-label="CYB home">
-      <span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram"></span>
+      <span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram" fetchpriority="high" decoding="async"></span>
       CYB
     </a>
     <nav class="navlinks" id="navlinks">
@@ -309,7 +310,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   <div class="hero-inner">
   <div class="badge-wrap">
    <div class="badge-tilt" id="badgeTilt">
-    <img class="badge-logo" src="images/cyb-logo.png" alt="CYB monogram logo">
+    <img class="badge-logo" src="images/cyb-logo.png" alt="CYB monogram logo" decoding="async">
    </div>
   </div>
   <div class="accent">Your Personal</div>
@@ -340,7 +341,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <div class="story-emblem reveal">
       <div class="monogram-wrapper">
         <img class="mono-ring" id="monoRing" src="images/cyb-tagline.svg" alt="CYB · Bali Barber · Sharp Cuts · At Your Home">
-        <img class="mono-mark" src="images/cyb-logo.png" alt="CYB monogram">
+        <img class="mono-mark" src="images/cyb-logo.png" alt="CYB monogram" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="reveal" style="--d:.12s">
@@ -367,7 +368,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 1 -->
     <div class="feat-col reveal">
       <div class="feat-ico">
-        <img src="images/icon-skull.png" alt="">
+        <img src="images/icon-skull.png" alt="" loading="lazy" decoding="async">
       </div>
       <h3>Precision Cuts</h3>
       <p>Sharp fades, clean line-ups and proper beard work. Real barbering done at your place, with the same care you would get in a top chair.</p>
@@ -379,7 +380,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 2 -->
     <div class="feat-col reveal" style="--d:.12s">
       <div class="feat-ico">
-        <img src="images/icon-chair.png" alt="">
+        <img src="images/icon-chair.png" alt="" loading="lazy" decoding="async">
       </div>
       <h3>We Come To You</h3>
       <p>No traffic and no waiting room. Your barber turns up on time across Ubud with the full kit, ready to set up wherever suits you.</p>
@@ -391,7 +392,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 3 -->
     <div class="feat-col reveal" style="--d:.24s">
       <div class="feat-ico">
-        <img src="images/icon-razor.png" alt="">
+        <img src="images/icon-razor.png" alt="" loading="lazy" decoding="async">
       </div>
       <h3>Honest Prices</h3>
       <p>Clear, fixed prices with nothing hidden. Settle up by cash or QRIS once the cut is exactly how you want it.</p>
@@ -441,7 +442,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <!-- BARBER -->
 <section class="wrap" id="barber">
   <div class="barber-grid">
-    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg?v=2" alt="Your CYB barber"><img class="barber-sign" src="images/sunny-signature.png" alt="Sunny" aria-hidden="true"></figure></div>
+    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg?v=2" alt="Your CYB barber" loading="lazy" decoding="async"><img class="barber-sign" src="images/sunny-signature.png" alt="Sunny" aria-hidden="true" loading="lazy" decoding="async"></figure></div>
     <div class="barber-copy reveal" style="--d:.12s">
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
@@ -483,7 +484,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <footer>
   <div class="wrap foot-inner">
-    <span class="brandmark"><span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram"></span> CYB</span>
+    <span class="brandmark"><span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram" loading="lazy" decoding="async"></span> CYB</span>
     <small>© 2026 CYB Mobile Barbershop · Bali. All rights reserved.</small>
   </div>
 </footer>
