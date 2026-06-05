@@ -1,22 +1,22 @@
 {
-  "phone": "628000000000",
+  "phone": "6289670119008",
   "instagram": "cyb.barber",
   "bookingMessage": "Hi CYB! I'd like to book a cut.\n\nService: \nArea / address: \nPreferred day & time: ",
   "bio": [
     "Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Ubud. Classic barbering, clean lines, and a finish that actually holds.",
-    "His thing is the details: fades that blend seamless, beards mapped to your face, and a hot-towel shave that feels like a proper ritual. One client at a time, full focus, and the chair comes to you."
+    "His thing is the details: fades that blend seamless, beards mapped to your face, and a straight-razor finish that feels like a proper ritual. One client at a time, full focus, and the chair comes to you."
   ],
   "areas": ["Ubud Centre", "Penestanan", "Tegallalang", "Pejeng", "Mas", "Nyuh Kuning", "& around"],
   "services": [
-    {"name": "Haircut", "price": "Rp 150K", "description": "Consultation, cut and style with premium products. Finished with a complimentary hot-lather neck shave."},
-    {"name": "Beard Trim", "price": "Rp 90K", "description": "Shape-up, straight-razor edging and a hot & cold towel combo, finished with beard oil or balm."},
+    {"name": "Haircut", "price": "Rp 150K", "description": "Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave."},
+    {"name": "Beard Trim", "price": "Rp 90K", "description": "Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm."},
     {"name": "Haircut & Beard", "price": "Rp 210K", "description": "The full reset. Everything in the haircut, plus a complete beard sculpt, fresh head to chin."},
-    {"name": "Hot Towel Shave", "price": "Rp 130K", "description": "Pre-shave oil, hot-towel steam and a close straight-razor shave, sealed with a cooling tonic."}
+    {"name": "Razor Shave", "price": "Rp 130K", "description": "A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise."}
   ],
   "gallery": [
     {"image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=72", "label": "Skin Fade"},
     {"image": "https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=800&q=72", "label": "Line-up"},
-    {"image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=72", "label": "Hot Towel"},
+    {"image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=72", "label": "Razor Shave"},
     {"image": "https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=800&q=72&crop=edges", "label": "Texture Crop"},
     {"image": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=72&crop=entropy", "label": "Beard Sculpt"},
     {"image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=72&crop=faces", "label": "Classic Taper"}
