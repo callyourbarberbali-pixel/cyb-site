@@ -16,10 +16,10 @@
   ],
   "gallery": [
     {"image": "images/gallery-1.jpg", "label": "Scissor Work"},
-    {"image": "images/gallery-2.jpg", "label": "Skin Fade"},
+    {"image": "images/gallery-5.jpg", "label": "Night Cut"},
     {"image": "images/gallery-3.jpg", "label": "Clipper Fade"},
     {"image": "images/gallery-4.jpg", "label": "Beard Sculpt"},
-    {"image": "images/gallery-5.jpg", "label": "Night Cut"},
+    {"image": "images/gallery-2.jpg", "label": "Skin Fade"},
     {"image": "images/gallery-6.jpg", "label": "Golden Hour"}
   ]
 }
