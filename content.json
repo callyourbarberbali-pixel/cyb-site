@@ -3,15 +3,16 @@
   "instagram": "cyb.barber",
   "bookingMessage": "Hi CYB! I'd like to book a cut.\n\nService: \nArea / address: \nPreferred day & time: ",
   "bio": [
-    "Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Ubud. Classic barbering, clean lines, and a finish that actually holds.",
+    "Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Bali. Classic barbering, clean lines, and a finish that actually holds.",
     "His thing is the details: fades that blend seamless, beards mapped to your face, and a straight-razor finish that feels like a proper ritual. One client at a time, full focus, and the chair comes to you."
   ],
-  "areas": ["Ubud Centre", "Penestanan", "Tegallalang", "Pejeng", "Mas", "Nyuh Kuning", "& around"],
+  "areas": ["Nusa Dua", "Uluwatu", "Seminyak", "Canggu", "Ubud", "& around"],
   "services": [
-    {"name": "Haircut", "price": "Rp 150K", "description": "Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave."},
-    {"name": "Beard Trim", "price": "Rp 90K", "description": "Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm."},
-    {"name": "Haircut & Beard", "price": "Rp 210K", "description": "The full reset. Everything in the haircut, plus a complete beard sculpt, fresh head to chin."},
-    {"name": "Razor Shave", "price": "Rp 130K", "description": "A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise."}
+    {"name": "Haircut", "price": "Rp 300K", "description": "Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave. Travel included."},
+    {"name": "Beard Trim", "price": "Rp 100K", "description": "Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm."},
+    {"name": "Full Shave", "price": "Rp 150K", "description": "A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise."},
+    {"name": "Hair Colour", "price": "From Rp 600K", "description": "Custom colour, from a full dye to subtle grey blending, matched to your tone and applied for a natural, even finish."},
+    {"name": "Hair Perm", "price": "From Rp 600K", "description": "Texture and curl built to suit your hair, from soft waves to defined curls, with a finish made to last."}
   ],
   "gallery": [
     {"image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=72", "label": "Skin Fade"},

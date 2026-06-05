@@ -153,30 +153,23 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .g-tile::after{content:"";position:absolute;inset:0;border:1px solid transparent;transition:.4s;z-index:1;pointer-events:none}
 .g-tile:hover::after{border-color:var(--gold)}
 
-/* REELS: fanned video cards */
-.reels{background:var(--bg);overflow:hidden}
-.reels-head{text-align:center;margin-bottom:clamp(20px,3vw,34px)}
+/* REELS: coverflow video carousel */
+.reels{background:var(--bg);overflow:hidden;padding-top:clamp(38px,5vw,72px);padding-bottom:clamp(38px,5vw,72px)}
+.reels-head{text-align:center;margin-bottom:clamp(12px,2.4vw,24px)}
 .reels-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
 .reels-head h2 span{color:var(--gold)}
-.reel-grid{display:flex;justify-content:center;align-items:flex-start;gap:14px;padding:18px 0 30px}
-.reel-card{width:clamp(140px,16.5vw,212px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;will-change:transform;background:#0c0b0a}
+.reel-grid{position:relative;height:clamp(430px,62vw,600px);max-width:1100px;margin:0 auto;overflow:hidden}
+.reel-card{position:absolute;top:50%;left:50%;width:clamp(232px,30vw,360px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);transform:translate(-50%,-50%);transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s,filter .55s;cursor:pointer;background:#0c0b0a;will-change:transform,opacity}
 .reel-card video{width:100%;height:100%;object-fit:cover;display:block}
-.reel-card:nth-child(1){transform:translateY(82px) scale(.82) rotate(-6deg);z-index:1}
-.reel-card:nth-child(2){transform:translateY(34px) scale(.93) rotate(-3deg);z-index:2}
-.reel-card:nth-child(3){transform:translateY(0) scale(1.08);z-index:3}
-.reel-card:nth-child(4){transform:translateY(34px) scale(.93) rotate(3deg);z-index:2}
-.reel-card:nth-child(5){transform:translateY(82px) scale(.82) rotate(6deg);z-index:1}
-.reel-grid:hover .reel-card{transform:translateY(40px) scale(.92) rotate(0)}
-.reel-grid:hover .reel-card:hover{transform:translateY(-8px) scale(1.1) rotate(0);z-index:5;box-shadow:0 36px 74px rgba(0,0,0,.65)}
-.reels-cta{text-align:center;margin-top:clamp(28px,4vw,44px)}
+.reel-card[data-pos="0"]{transform:translate(-50%,-50%) scale(1.04);opacity:1;filter:none;z-index:5}
+.reel-card[data-pos="-1"]{transform:translate(calc(-50% - 60%),-50%) scale(.84);opacity:.62;filter:brightness(.62) blur(.6px);z-index:3}
+.reel-card[data-pos="1"]{transform:translate(calc(-50% + 60%),-50%) scale(.84);opacity:.62;filter:brightness(.62) blur(.6px);z-index:3}
+.reel-card[data-pos="-2"]{transform:translate(calc(-50% - 108%),-50%) scale(.68);opacity:0;filter:brightness(.4) blur(2px);z-index:1}
+.reel-card[data-pos="2"]{transform:translate(calc(-50% + 108%),-50%) scale(.68);opacity:0;filter:brightness(.4) blur(2px);z-index:1}
+.reels-cta{text-align:center;margin-top:clamp(20px,3vw,38px)}
 .ig-more{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:1px solid var(--line);border-radius:999px;color:var(--cream);font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;transition:.3s}
 .ig-more svg{width:18px;height:18px}
 .ig-more:hover{color:#fff;border-color:transparent;background:radial-gradient(circle at 28% 112%,#fdf497 0%,#fd5949 42%,#d6249f 62%,#962fbf 80%,#4f5bd5 100%);box-shadow:0 8px 24px rgba(214,36,159,.45)}
-@media(max-width:760px){
-  .reel-grid{overflow-x:auto;justify-content:flex-start;gap:12px;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .reel-card{transform:none!important;width:62vw;max-width:280px;flex:0 0 auto;scroll-snap-align:center}
-  .reel-grid::-webkit-scrollbar{display:none}
-}
 .gallery .note{text-align:center;color:var(--muted);font-style:italic;font-size:.9rem;margin-top:32px;opacity:.65}
 
 /* SERVICES */
@@ -346,7 +339,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <header class="nav" id="nav">
   <div class="util">
-    <span class="dot"><b class="u-full">Booking open · Ubud &amp; around</b><b class="u-short">Booking open now</b></span>
+    <span class="dot"><b class="u-full">Booking open · Across Bali</b><b class="u-short">Booking open now</b></span>
     <span class="u-actions">
       <a href="#" class="js-ig u-ig" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
       <a href="#" class="js-book u-book"><svg class="wa" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>Book now</a>
@@ -410,7 +403,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       <div class="eyebrow">Story</div>
       <h2 class="h-disp">The chair comes to you.</h2>
       <p>CYB started with a simple idea: the best cut shouldn't depend on a queue or a commute. So the shop goes mobile, with a full kit, fresh blades, and a barber who shows up at your door, on schedule, every time.</p>
-      <p>Whether it's a villa above the Ubud rice fields, a guesthouse in Penestanan, or a retreat in Tegallalang, you get the same unhurried, premium experience you'd expect from a proper chair, minus everything that gets in the way of it.</p>
+      <p>Whether it's a clifftop villa in Uluwatu, a guesthouse in Canggu, or a retreat in Ubud, you get the same unhurried, premium experience you'd expect from a proper chair, minus everything that gets in the way of it.</p>
       <p>One barber. Full attention. Your space, your music, your time.</p>
     </div>
   </div>
@@ -445,7 +438,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
         <img src="images/icon-map.png" alt="" loading="lazy" decoding="async">
       </div>
       <h3>We Come To You</h3>
-      <p>No traffic and no waiting room. Your barber turns up on time across Ubud with the full kit, ready to set up wherever suits you.</p>
+      <p>No traffic and no waiting room. Your barber turns up on time across Bali with the full kit, ready to set up wherever suits you.</p>
       <a href="#contact" class="feat-more">Where we go
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
       </a>
@@ -490,12 +483,12 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <div class="eyebrow">From The Chair</div>
     <h2 class="h-disp">In <span>Motion.</span></h2>
   </div>
-  <div class="reel-grid reveal">
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+  <div class="reel-grid reveal" id="reelGrid">
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
   </div>
   <div class="reels-cta reveal">
     <a class="ig-more js-ig" href="#" aria-label="View more on Instagram">
@@ -514,10 +507,11 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       <p>First-rate haircuts, beard work and straight-razor shaves, brought to your door. By appointment. Travel within the service area included.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc js-book reveal" data-svc="Haircut"><div class="num">1</div><h3>Haircut</h3><div class="price">Rp 150K</div><p>Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave.</p></div>
-      <div class="svc js-book reveal" data-svc="Beard Trim" style="--d:.1s"><div class="num">2</div><h3>Beard Trim</h3><div class="price">Rp 90K</div><p>Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm.</p></div>
-      <div class="svc js-book reveal" data-svc="Haircut &amp; Beard" style="--d:.15s"><div class="num">3</div><h3>Haircut &amp; Beard</h3><div class="price">Rp 210K</div><p>The full reset. Everything in the haircut, plus a complete beard sculpt, fresh head to chin.</p></div>
-      <div class="svc js-book reveal" data-svc="Razor Shave" style="--d:.2s"><div class="num">4</div><h3>Razor Shave</h3><div class="price">Rp 130K</div><p>A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise.</p></div>
+      <div class="svc js-book reveal" data-svc="Haircut"><div class="num">1</div><h3>Haircut</h3><div class="price">Rp 300K</div><p>Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave. Travel included.</p></div>
+      <div class="svc js-book reveal" data-svc="Beard Trim" style="--d:.1s"><div class="num">2</div><h3>Beard Trim</h3><div class="price">Rp 100K</div><p>Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm.</p></div>
+      <div class="svc js-book reveal" data-svc="Full Shave" style="--d:.15s"><div class="num">3</div><h3>Full Shave</h3><div class="price">Rp 150K</div><p>A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise.</p></div>
+      <div class="svc js-book reveal" data-svc="Hair Colour" style="--d:.2s"><div class="num">4</div><h3>Hair Colour</h3><div class="price">From Rp 600K</div><p>Custom colour, from a full dye to subtle grey blending, matched to your tone and applied for a natural, even finish.</p></div>
+      <div class="svc js-book reveal" data-svc="Hair Perm" style="--d:.25s"><div class="num">5</div><h3>Hair Perm</h3><div class="price">From Rp 600K</div><p>Texture and curl built to suit your hair, from soft waves to defined curls, with a finish made to last.</p></div>
     </div>
   </div>
 </section>
@@ -539,27 +533,27 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       <article class="rev-card reveal">
         <div class="rev-stars">★★★★★</div>
         <p>Booked Sunny the night before a shoot and he rolled up to my villa right on time, full kit, no fuss. Sharpest fade I've had in Bali, and I never left my own balcony.</p>
-        <div class="rev-by"><div class="rev-ava">MD</div><div class="rev-meta"><strong>Marco D.</strong><span>Penestanan · Skin Fade</span></div></div>
+        <div class="rev-by"><div class="rev-ava">MD</div><div class="rev-meta"><strong>Marco D.</strong><span>Ubud · Skin Fade</span></div></div>
       </article>
       <article class="rev-card reveal" style="--d:.1s">
         <div class="rev-stars">★★★★★</div>
-        <p>I'd been chasing a proper barber since moving to Ubud. This is the one. The line-up was surgical and that straight-razor finish alone is worth the booking.</p>
-        <div class="rev-by"><div class="rev-ava">TR</div><div class="rev-meta"><strong>Tom R.</strong><span>Ubud Centre · Haircut &amp; Beard</span></div></div>
+        <p>I'd been chasing a proper barber since moving to Bali. This is the one. The line-up was surgical and that straight-razor finish alone is worth the booking.</p>
+        <div class="rev-by"><div class="rev-ava">TR</div><div class="rev-meta"><strong>Tom R.</strong><span>Seminyak · Haircut</span></div></div>
       </article>
       <article class="rev-card reveal" style="--d:.2s">
         <div class="rev-stars">★★★★★</div>
         <p>No traffic, no waiting room, just a clean cut on my terrace with good music going. Sunny actually listens to what you want. Already booked my next three.</p>
-        <div class="rev-by"><div class="rev-ava">AP</div><div class="rev-meta"><strong>Aldi P.</strong><span>Nyuh Kuning · Haircut</span></div></div>
+        <div class="rev-by"><div class="rev-ava">AP</div><div class="rev-meta"><strong>Aldi P.</strong><span>Canggu · Haircut</span></div></div>
       </article>
       <article class="rev-card reveal is-extra">
         <div class="rev-stars">★★★★★</div>
         <p>Punctual, professional and properly skilled. My beard has never looked this sharp. Felt like a private session, not a rushed appointment.</p>
-        <div class="rev-by"><div class="rev-ava">KS</div><div class="rev-meta"><strong>Kadek S.</strong><span>Tegallalang · Beard Trim</span></div></div>
+        <div class="rev-by"><div class="rev-ava">KS</div><div class="rev-meta"><strong>Kadek S.</strong><span>Uluwatu · Beard Trim</span></div></div>
       </article>
       <article class="rev-card reveal is-extra">
         <div class="rev-stars">★★★★★</div>
         <p>Flew in for a week and needed a tidy-up before meetings. Sunny sorted me right at the hotel, zero hassle. This is how barbering should work.</p>
-        <div class="rev-by"><div class="rev-ava">JW</div><div class="rev-meta"><strong>James W.</strong><span>Ubud Centre · Razor Shave</span></div></div>
+        <div class="rev-by"><div class="rev-ava">JW</div><div class="rev-meta"><strong>James W.</strong><span>Nusa Dua · Full Shave</span></div></div>
       </article>
     </div>
     <div class="rev-hint">Swipe for more →</div>
@@ -576,7 +570,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
       <div class="barber-bio">
-      <p>Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Ubud. Classic barbering, clean lines, and a finish that actually holds.</p>
+      <p>Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Bali. Classic barbering, clean lines, and a finish that actually holds.</p>
       <p>His thing is the details: fades that blend seamless, beards mapped to your face, and a straight-razor finish that feels like a proper ritual. One client at a time, full focus, and the chair comes to you.</p>
       </div>
       <a href="#" class="book-btn js-book">Book with CYB</a>
@@ -590,9 +584,9 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <div class="contact-grid">
       <div class="reveal">
         <div class="eyebrow">Where We Go</div>
-        <h2 class="h-disp">Around Ubud.</h2>
-        <div class="area-list"><span>Ubud Centre</span><span>Penestanan</span><span>Tegallalang</span><span>Pejeng</span><span>Mas</span><span>Nyuh Kuning</span><span>&amp; around</span></div>
-        <div class="info-row"><span class="lbl">Outside the zone?</span><p>Message us. Most areas are covered for a small travel fee.</p></div>
+        <h2 class="h-disp">Across Bali.</h2>
+        <div class="area-list"><span>Nusa Dua</span><span>Uluwatu</span><span>Seminyak</span><span>Canggu</span><span>Ubud</span><span>&amp; around</span></div>
+        <div class="info-row"><span class="lbl">Travel included</span><p>Transport is built into the price across these areas. Further out? Message us and we'll make it work.</p></div>
         <div class="info-row"><span class="lbl">Instagram</span><a href="#" class="js-ig">@cyb.barber</a></div>
         <div class="info-row"><span class="lbl">WhatsApp</span><a href="#" class="js-book">Tap to book →</a></div>
       </div>
@@ -720,6 +714,50 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
   }
   addEventListener("resize",size);
   size();
+})();
+/* Reels coverflow carousel */
+(function(){
+  const stage=document.getElementById("reelGrid");
+  if(!stage)return;
+  const cards=[...stage.querySelectorAll(".reel-card")];
+  const vids=cards.map(c=>c.querySelector("video"));
+  const N=cards.length;if(!N)return;
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  let cur=0,timer=null;
+  function layout(){
+    cards.forEach((c,i)=>{
+      let off=i-cur;
+      if(off>N/2)off-=N;else if(off<-N/2)off+=N;
+      c.dataset.pos=Math.max(-2,Math.min(2,off));
+    });
+  }
+  function playCur(){
+    vids.forEach((v,i)=>{
+      if(!v)return;
+      if(i===cur){try{v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}}
+      else{try{v.pause();}catch(e){}}
+    });
+  }
+  function arm(){
+    clearTimeout(timer);
+    const v=vids[cur];
+    const dur=(v&&isFinite(v.duration)&&v.duration>0)?v.duration*1000:6000;
+    timer=setTimeout(()=>go(cur+1),Math.min(dur+300,9000));
+  }
+  function go(n){cur=(n%N+N)%N;layout();if(!reduce){playCur();arm();}}
+  cards.forEach((c,i)=>c.addEventListener("click",()=>{if(i!==cur)go(i);}));
+  vids.forEach((v,i)=>{if(v)v.addEventListener("ended",()=>{if(i===cur)go(cur+1);});});
+  let sx=0;
+  stage.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;},{passive:true});
+  stage.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));},{passive:true});
+  layout();
+  if(reduce){const v=vids[0];if(v){try{v.play();}catch(e){}}}
+  else{
+    const io=new IntersectionObserver((ents)=>{
+      ents.forEach(en=>{if(en.isIntersecting){playCur();arm();}else{clearTimeout(timer);vids.forEach(v=>{if(v)try{v.pause();}catch(e){}});}});
+    },{threshold:.3});
+    io.observe(stage);
+  }
 })();
 function setMenu(open){nl.classList.toggle("open",open);mb.classList.toggle("open",open);nav.classList.toggle("menu-open",open);if(open)nav.classList.remove("hide");document.body.style.overflow=open?"hidden":"";}
 mb.addEventListener("click",()=>setMenu(!menuOpen()));
