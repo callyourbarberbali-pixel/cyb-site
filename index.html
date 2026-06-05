@@ -211,10 +211,8 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .sec-divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);display:block}
 
 /* RAZOR SCROLL REVEAL */
-.razor-scrub{position:relative;height:150vh;background:var(--bg)}
-.scrub-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
-.razor-scrub canvas{display:block;width:min(620px,90vw);height:auto;aspect-ratio:1/1}
-@media(max-width:700px){.razor-scrub{height:140vh}}
+.razor-scrub{background:var(--bg);display:flex;justify-content:center;align-items:center;padding:clamp(24px,5vw,70px) 0}
+.razor-scrub canvas{display:block;width:min(480px,78vw);height:auto;aspect-ratio:1/1}
 
 /* WHY CYB (features) */
 .feat{padding:clamp(58px,8vw,104px) 28px;position:relative}
@@ -465,9 +463,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <!-- RAZOR SCROLL REVEAL -->
 <section class="razor-scrub" id="craft">
-  <div class="scrub-sticky">
-    <canvas id="razorCanvas" aria-label="CYB engraved straight razor"></canvas>
-  </div>
+  <canvas id="razorCanvas" aria-label="CYB engraved straight razor"></canvas>
 </section>
 
 <!-- REVIEWS -->
@@ -627,11 +623,10 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
   function pad(n){return String(n).padStart(3,"0");}
   function draw(){
     if(!canvas.width)return;
-    let p=0;
     const r=sec.getBoundingClientRect();
-    const span=sec.offsetHeight-innerHeight;
-    if(span>0)p=Math.max(0,Math.min(1,(-r.top)/span));
-    let idx=reduce?FRAMES-1:Math.round(Math.min(1,p/0.6)*(FRAMES-1));
+    const vh=innerHeight||document.documentElement.clientHeight;
+    let p=Math.max(0,Math.min(1,(vh-r.top)/(vh*0.55)));
+    let idx=reduce?FRAMES-1:Math.round(p*(FRAMES-1));
     let im=imgs[idx];
     if(!im||!im.complete||!im.naturalWidth){im=imgs.find(x=>x&&x.complete&&x.naturalWidth);}
     if(!im)return;
@@ -639,7 +634,7 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
     ctx.drawImage(im,0,0,canvas.width,canvas.height);
   }
   function size(){
-    const disp=Math.min(620,innerWidth*0.90);
+    const disp=Math.min(480,innerWidth*0.78);
     const dpr=Math.min(devicePixelRatio||1,2);
     canvas.width=Math.round(disp*dpr);
     canvas.height=Math.round(disp*dpr);
