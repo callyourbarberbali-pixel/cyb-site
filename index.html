@@ -615,41 +615,47 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
   const sec=document.getElementById("razorScrub")||document.querySelector(".razor-scrub");
   const canvas=document.getElementById("razorCanvas");
   if(!sec||!canvas)return;
-  const ctx=canvas.getContext("2d");
+  const ctx=canvas.getContext("2d",{alpha:false});
+  ctx.imageSmoothingQuality="high";
   const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-  const FRAMES=65;
+  const FRAMES=65, SRC=720;
   const imgs=new Array(FRAMES);
-  let firstReady=false;
+  let lastIdx=-1, anyReady=false;
   function pad(n){return String(n).padStart(3,"0");}
-  function draw(){
-    if(!canvas.width)return;
+  function targetIdx(){
     const r=sec.getBoundingClientRect();
     const vh=innerHeight||document.documentElement.clientHeight;
     const cY=r.top+r.height/2;
     const div=innerWidth>700?0.34:0.5;
-    let p=Math.max(0,Math.min(1,(vh-cY)/(vh*div)));
-    let idx=reduce?FRAMES-1:Math.round(p*(FRAMES-1));
+    const p=Math.max(0,Math.min(1,(vh-cY)/(vh*div)));
+    return reduce?FRAMES-1:Math.round(p*(FRAMES-1));
+  }
+  function draw(force){
+    if(!canvas.width||!anyReady)return;
+    let idx=targetIdx();
+    if(idx===lastIdx&&!force)return;
     let im=imgs[idx];
-    if(!im||!im.complete||!im.naturalWidth){im=imgs.find(x=>x&&x.complete&&x.naturalWidth);}
-    if(!im)return;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(im&&im.complete&&im.naturalWidth){lastIdx=idx;}
+    else{im=imgs.find(x=>x&&x.complete&&x.naturalWidth);if(!im)return;}
     ctx.drawImage(im,0,0,canvas.width,canvas.height);
   }
   function size(){
     const disp=Math.min(480,innerWidth*0.78);
     const dpr=Math.min(devicePixelRatio||1,2);
-    canvas.width=Math.round(disp*dpr);
-    canvas.height=Math.round(disp*dpr);
-    draw();
+    const px=Math.min(Math.round(disp*dpr),SRC);
+    canvas.width=px;canvas.height=px;
+    lastIdx=-1;draw(true);
   }
   let ticking=false;
-  window.requestScrub=function(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{draw();ticking=false;});};
+  window.requestScrub=function(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;draw();});};
   for(let i=0;i<FRAMES;i++){
     const im=new Image();
     im.decoding="async";
     im.src="frames/f_"+pad(i+1)+".jpg";
-    im.onload=()=>{if(!firstReady){firstReady=true;draw();}};
     imgs[i]=im;
+    const done=()=>{if(!anyReady){anyReady=true;draw(true);}};
+    if(im.decode){im.decode().then(done).catch(()=>{im.onload=done;});}
+    else{im.onload=done;}
   }
   addEventListener("resize",size);
   size();
