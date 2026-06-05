@@ -178,11 +178,12 @@ section{padding:116px 0;position:relative}
 footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot-inner .brandmark{font-size:1.4rem}
+.foot-inner .brandmark-badge{width:40px;height:40px}
 .foot-inner small{color:var(--muted);letter-spacing:.06em}
 
 /* MOBILE BOOK BAR */
 .book-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;padding:12px 16px;background:rgba(0,0,0,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
-.book-bar a{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--sage);color:#000;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.8rem;padding:15px;font-weight:600}
+.book-bar a{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#25d366;color:#fff;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.8rem;padding:15px;font-weight:600}
 .book-bar svg{width:18px;height:18px}
 
 /* REVEAL */
@@ -431,7 +432,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <footer>
   <div class="wrap foot-inner">
-    <span class="brandmark"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="47" stroke="var(--gold)" stroke-width="1.5"/><text x="50" y="64" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="40" fill="var(--sage)">CYB</text></svg> CYB</span>
+    <span class="brandmark"><span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram"></span> CYB</span>
     <small>© 2026 CYB Mobile Barbershop · Bali. All rights reserved.</small>
   </div>
 </footer>
