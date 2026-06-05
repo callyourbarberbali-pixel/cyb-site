@@ -45,14 +45,19 @@ header.nav.hide{transform:translateY(-100%)}
 /* While the mobile menu is open, the header must NOT use transform or backdrop-filter,
    otherwise it becomes the containing block for the fixed full-screen menu overlay and breaks it. */
 header.nav.menu-open{transform:none!important;background:transparent!important;backdrop-filter:none!important;border-color:transparent!important}
-.util{display:flex;align-items:center;justify-content:center;gap:24px;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);padding:9px 28px;border-bottom:1px solid var(--line);overflow:hidden;max-height:42px;transition:max-height .4s,padding .4s,opacity .4s;font-weight:500;white-space:nowrap;flex-wrap:nowrap}
+.util{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);padding:9px 28px;border-bottom:1px solid var(--line);overflow:hidden;max-height:54px;transition:max-height .4s,padding .4s,opacity .4s;font-weight:600;white-space:nowrap;flex-wrap:nowrap}
 header.nav.scrolled .util{max-height:0;padding:0 28px;opacity:0;border-color:transparent}
-.util .dot{display:inline-flex;align-items:center;gap:8px;color:var(--sage-soft)}
-.util .dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);animation:pulse 2.2s infinite}
-.util b{font-weight:500}
+.util .dot{display:inline-flex;align-items:center;gap:9px;color:var(--sage-soft);font-weight:700}
+.util .dot::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);animation:pulse 2.2s infinite;flex:0 0 auto}
+.util b{font-weight:700}
 .util .u-short{display:none}
+.u-actions{display:inline-flex;align-items:center;gap:18px;flex:0 0 auto}
+.u-ig{color:var(--cream);opacity:.82;transition:.25s}
+.u-ig:hover{color:var(--gold-soft);opacity:1}
+.u-book{display:inline-flex;align-items:center;gap:7px;background:#25d366;color:#fff!important;padding:6px 15px;border-radius:999px;letter-spacing:.14em;font-weight:700;transition:transform .25s,box-shadow .3s,background .3s}
+.u-book .wa{width:14px;height:14px;flex:0 0 auto}
+.u-book:hover{background:#1ebe5d;box-shadow:0 0 18px rgba(37,211,102,.45);transform:translateY(-1px)}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(114,146,116,.55)}70%{box-shadow:0 0 0 9px rgba(114,146,116,0)}100%{box-shadow:0 0 0 0 rgba(114,146,116,0)}}
-.util a:hover{color:var(--gold-soft)}
 .nav-main{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;transition:padding .4s}
 header.nav.scrolled .nav-main{padding:10px 28px}
 .brandmark{display:flex;align-items:center;gap:12px;letter-spacing:.2em;font-family:var(--f-disp);font-size:1.8rem;color:var(--cream)}
@@ -227,7 +232,9 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 }
 @media(max-width:680px){
   body{padding-bottom:64px}
-  .util{display:flex;gap:10px;font-size:.52rem;letter-spacing:.08em;padding:8px 12px}
+  .util{gap:10px;font-size:.6rem;letter-spacing:.1em;padding:8px 14px}
+  .u-ig{display:none}
+  .u-book{padding:6px 12px;letter-spacing:.08em}
   .navlinks{position:fixed;inset:0;flex-direction:column;justify-content:center;gap:28px;background:rgba(0,0,0,.98);backdrop-filter:blur(12px);transform:translateX(100%);transition:transform .4s}
   .navlinks.open{transform:none}.navlinks a{font-size:1.1rem}.nav-cta{padding:13px 30px}
   .menu-btn{display:flex;z-index:2}
@@ -252,11 +259,11 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 
 <header class="nav" id="nav">
   <div class="util">
-    <span class="dot"><b class="u-full">Now booking in Ubud &amp; around</b><b class="u-short">Booking · Ubud</b></span>
-    <span style="opacity:.4">·</span>
-    <a href="#" class="js-ig">@cyb.barber</a>
-    <span style="opacity:.4">·</span>
-    <a href="#" class="js-book">WhatsApp</a>
+    <span class="dot"><b class="u-full">Booking open · Ubud &amp; around</b><b class="u-short">Booking open now</b></span>
+    <span class="u-actions">
+      <a href="#" class="js-ig u-ig">@cyb.barber</a>
+      <a href="#" class="js-book u-book"><svg class="wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.2-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.5.8 1 1.3 1.7 1.8.3.2.5.2.7-.1l.5-.7c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.4z"/></svg>Book now</a>
+    </span>
   </div>
   <div class="nav-main">
     <a href="#top" class="brandmark" aria-label="CYB home">
