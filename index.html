@@ -160,7 +160,7 @@ section{padding:116px 0;position:relative}
 /* BARBER */
 .barber-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
 .barber-figure{position:relative;width:100%;max-width:400px;margin:0 auto}
-.barber-figure img{display:block;width:100%;height:auto;object-fit:contain;transition:transform .5s}
+.barber-figure img{--c:14px;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(22%) contrast(1.04) drop-shadow(0 16px 34px rgba(0,0,0,.5));clip-path:polygon(var(--c) 0,calc(100% - var(--c)) 0,100% var(--c),100% calc(100% - var(--c)),calc(100% - var(--c)) 100%,var(--c) 100%,0 calc(100% - var(--c)),0 var(--c));transition:transform .5s}
 .barber-figure:hover img{transform:translateY(-5px)}
 .barber-copy h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin:8px 0 22px}
 .barber-copy p{color:var(--muted);margin-bottom:16px}
@@ -440,7 +440,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <!-- BARBER -->
 <section class="wrap" id="barber">
   <div class="barber-grid">
-    <div class="reveal"><figure class="barber-figure"><img src="images/barber.png" alt="Your CYB barber"></figure></div>
+    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg" alt="Your CYB barber"></figure></div>
     <div class="barber-copy reveal" style="--d:.12s">
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
