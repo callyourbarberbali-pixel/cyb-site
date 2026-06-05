@@ -148,12 +148,8 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 /* GALLERY: uniform responsive grid */
 .g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .g-tile{position:relative;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;display:block;margin:0}
-.g-tile img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:grayscale(65%) contrast(1.05);transition:transform .7s ease,filter .6s ease}
-.g-tile:hover img{transform:scale(1.04);filter:grayscale(0) contrast(1.03)}
-.g-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.2em;font-size:.64rem;font-weight:600;color:var(--cream);background:linear-gradient(transparent,rgba(0,0,0,.9));transform:translateY(8px);opacity:0;transition:.4s;z-index:2;pointer-events:none}
-.g-tile:hover figcaption{transform:none;opacity:1}
-.g-tile::after{content:"";position:absolute;inset:0;border:1px solid transparent;transition:.4s;z-index:1;pointer-events:none}
-.g-tile:hover::after{border-color:var(--gold)}
+.g-tile img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.g-tile figcaption{display:none}
 
 /* REELS: coverflow video carousel */
 .reels{overflow:hidden;margin-top:clamp(-56px,-4vw,-20px);padding-top:clamp(10px,1.8vw,26px);padding-bottom:clamp(28px,3.5vw,52px)}
