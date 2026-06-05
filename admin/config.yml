@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/cyb-site   # <-- CHANGE to your-username/your-repo-name
+  branch: main
+
+# Where uploaded photos are stored in the repo, and the URL path to them
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "CYB Website"
+    files:
+      - name: "content"
+        label: "Site Content"
+        file: "content.json"
+        fields:
+          - { label: "WhatsApp number (country code, no +)", name: "phone", widget: "string", hint: "e.g. 6281234567890" }
+          - { label: "Instagram handle (no @)", name: "instagram", widget: "string" }
+          - { label: "WhatsApp pre-filled message", name: "bookingMessage", widget: "text" }
+
+          - label: "Service areas"
+            name: "areas"
+            widget: "list"
+            field: { label: "Area", name: "area", widget: "string" }
+
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Barber bio (one box per paragraph)"
+            name: "bio"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
+          - label: "Gallery photos"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Label", name: "label", widget: "string", required: false }
