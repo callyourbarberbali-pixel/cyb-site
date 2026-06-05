@@ -95,8 +95,9 @@ header.nav.scrolled .nav-main{padding:10px 28px}
 
 /* BUTTON */
 .book-btn{display:inline-flex;align-items:center;justify-content:center;position:relative;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.24em;font-size:.76rem;font-weight:600;color:var(--gold-soft);padding:17px 44px;cursor:pointer;border:1px solid var(--gold);background:transparent;transition:.4s}
-.book-btn::before,.book-btn::after{content:"";position:absolute;top:50%;width:7px;height:7px;border:1px solid var(--gold);transform:translateY(-50%) rotate(45deg);transition:.4s}
-.book-btn::before{left:-4px}.book-btn::after{right:-4px}
+.book-btn::before,.book-btn::after{content:"";position:absolute;top:50%;width:7px;height:7px;border:1px solid var(--gold);transition:background .4s}
+.book-btn::before{left:0;transform:translate(-50%,-50%) rotate(45deg)}
+.book-btn::after{right:0;transform:translate(50%,-50%) rotate(45deg)}
 .book-btn:hover{background:var(--gold);color:#000;letter-spacing:.28em;box-shadow:0 0 34px rgba(199,154,90,.28)}
 .book-btn:hover::before,.book-btn:hover::after{background:var(--gold)}
 
