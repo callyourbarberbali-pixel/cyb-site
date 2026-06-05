@@ -210,10 +210,11 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .sec-divider span:last-child{background:linear-gradient(90deg,var(--line),transparent)}
 .sec-divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);display:block}
 
-/* RAZOR VIDEO */
-.razor-vid{background:var(--bg);overflow:hidden}
-.razor-vid .vid-wrap{display:flex;justify-content:center}
-.razor-vid video{width:min(560px,90vw);height:auto;aspect-ratio:1/1;object-fit:cover;mix-blend-mode:screen;pointer-events:none}
+/* RAZOR SCROLL REVEAL */
+.razor-scrub{position:relative;height:220vh;background:var(--bg)}
+.scrub-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
+.razor-scrub canvas{display:block;width:min(560px,88vw);height:auto;aspect-ratio:1/1}
+@media(max-width:700px){.razor-scrub{height:190vh}}
 
 /* WHY CYB (features) */
 .feat{padding:clamp(58px,8vw,104px) 28px;position:relative}
@@ -462,12 +463,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   </div>
 </section>
 
-<!-- RAZOR VIDEO -->
-<section class="razor-vid" id="craft">
-  <div class="wrap">
-    <div class="vid-wrap">
-      <video src="videos/cyb-razor.mp4" autoplay loop muted playsinline preload="auto" aria-label="CYB engraved straight razor"></video>
-    </div>
+<!-- RAZOR SCROLL REVEAL -->
+<section class="razor-scrub" id="craft">
+  <div class="scrub-sticky">
+    <canvas id="razorCanvas" aria-label="CYB engraved straight razor"></canvas>
   </div>
 </section>
 
@@ -613,7 +612,51 @@ const nav=document.getElementById("nav");let lastY=0;
 const monoRing=document.getElementById("monoRing");
 const mb=document.getElementById("menuBtn"),nl=document.getElementById("navlinks");
 const menuOpen=()=>nl.classList.contains("open");
-addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("progress").style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+"%";nav.classList.toggle("scrolled",scrollY>40);if(scrollY>lastY&&scrollY>360&&!menuOpen())nav.classList.add("hide");else nav.classList.remove("hide");lastY=scrollY;if(monoRing)monoRing.style.transform="rotate("+(scrollY*0.14)+"deg)";});
+addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("progress").style.width=h.scrollTop/(h.scrollHeight-h.clientHeight)*100+"%";nav.classList.toggle("scrolled",scrollY>40);if(scrollY>lastY&&scrollY>360&&!menuOpen())nav.classList.add("hide");else nav.classList.remove("hide");lastY=scrollY;if(monoRing)monoRing.style.transform="rotate("+(scrollY*0.14)+"deg)";if(window.requestScrub)requestScrub();});
+
+/* RAZOR SCROLL-SCRUB REVEAL */
+(function(){
+  const sec=document.getElementById("razorScrub")||document.querySelector(".razor-scrub");
+  const canvas=document.getElementById("razorCanvas");
+  if(!sec||!canvas)return;
+  const ctx=canvas.getContext("2d");
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const FRAMES=65;
+  const imgs=new Array(FRAMES);
+  let firstReady=false;
+  function pad(n){return String(n).padStart(3,"0");}
+  function draw(){
+    if(!canvas.width)return;
+    let p=0;
+    const r=sec.getBoundingClientRect();
+    const span=sec.offsetHeight-innerHeight;
+    if(span>0)p=Math.max(0,Math.min(1,(-r.top)/span));
+    let idx=reduce?FRAMES-1:Math.round(p*(FRAMES-1));
+    let im=imgs[idx];
+    if(!im||!im.complete||!im.naturalWidth){im=imgs.find(x=>x&&x.complete&&x.naturalWidth);}
+    if(!im)return;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(im,0,0,canvas.width,canvas.height);
+  }
+  function size(){
+    const disp=Math.min(560,innerWidth*0.88);
+    const dpr=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.round(disp*dpr);
+    canvas.height=Math.round(disp*dpr);
+    draw();
+  }
+  let ticking=false;
+  window.requestScrub=function(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{draw();ticking=false;});};
+  for(let i=0;i<FRAMES;i++){
+    const im=new Image();
+    im.decoding="async";
+    im.src="frames/f_"+pad(i+1)+".png";
+    im.onload=()=>{if(!firstReady){firstReady=true;draw();}};
+    imgs[i]=im;
+  }
+  addEventListener("resize",size);
+  size();
+})();
 function setMenu(open){nl.classList.toggle("open",open);mb.classList.toggle("open",open);nav.classList.toggle("menu-open",open);if(open)nav.classList.remove("hide");document.body.style.overflow=open?"hidden":"";}
 mb.addEventListener("click",()=>setMenu(!menuOpen()));
 /* Smart in-page navigation: smooth-scroll to sections without polluting the URL with #hashes,
