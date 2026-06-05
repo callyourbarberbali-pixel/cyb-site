@@ -152,6 +152,31 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .g-tile:hover figcaption{transform:none;opacity:1}
 .g-tile::after{content:"";position:absolute;inset:0;border:1px solid transparent;transition:.4s;z-index:1;pointer-events:none}
 .g-tile:hover::after{border-color:var(--gold)}
+
+/* REELS: fanned video cards */
+.reels{background:var(--bg);overflow:hidden}
+.reels-head{text-align:center;margin-bottom:clamp(20px,3vw,34px)}
+.reels-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
+.reels-head h2 span{color:var(--gold)}
+.reel-grid{display:flex;justify-content:center;align-items:flex-start;gap:14px;padding:18px 0 30px}
+.reel-card{width:clamp(140px,16.5vw,212px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;will-change:transform;background:#0c0b0a}
+.reel-card video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-card:nth-child(1){transform:translateY(82px) scale(.82) rotate(-6deg);z-index:1}
+.reel-card:nth-child(2){transform:translateY(34px) scale(.93) rotate(-3deg);z-index:2}
+.reel-card:nth-child(3){transform:translateY(0) scale(1.08);z-index:3}
+.reel-card:nth-child(4){transform:translateY(34px) scale(.93) rotate(3deg);z-index:2}
+.reel-card:nth-child(5){transform:translateY(82px) scale(.82) rotate(6deg);z-index:1}
+.reel-grid:hover .reel-card{transform:translateY(40px) scale(.92) rotate(0)}
+.reel-grid:hover .reel-card:hover{transform:translateY(-8px) scale(1.1) rotate(0);z-index:5;box-shadow:0 36px 74px rgba(0,0,0,.65)}
+.reels-cta{text-align:center;margin-top:clamp(28px,4vw,44px)}
+.ig-more{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:1px solid var(--line);border-radius:999px;color:var(--cream);font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;transition:.3s}
+.ig-more svg{width:18px;height:18px}
+.ig-more:hover{color:#fff;border-color:transparent;background:radial-gradient(circle at 28% 112%,#fdf497 0%,#fd5949 42%,#d6249f 62%,#962fbf 80%,#4f5bd5 100%);box-shadow:0 8px 24px rgba(214,36,159,.45)}
+@media(max-width:760px){
+  .reel-grid{overflow-x:auto;justify-content:flex-start;gap:12px;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .reel-card{transform:none!important;width:62vw;max-width:280px;flex:0 0 auto;scroll-snap-align:center}
+  .reel-grid::-webkit-scrollbar{display:none}
+}
 .gallery .note{text-align:center;color:var(--muted);font-style:italic;font-size:.9rem;margin-top:32px;opacity:.65}
 
 /* SERVICES */
@@ -456,6 +481,27 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <figure class="g-tile wide"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1000&q=72&crop=entropy" data-full="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1500&q=80" alt="Beard sculpt" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cyb5/1000/500?grayscale'"><figcaption>Beard Sculpt</figcaption></figure>
     <figure class="g-tile"><img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=600&q=72&crop=edges" data-full="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=1400&q=80" alt="Texture crop" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cyb4/600/600?grayscale'"><figcaption>Texture Crop</figcaption></figure>
     <figure class="g-tile"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=72&crop=faces" data-full="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=80" alt="Classic taper" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cyb6/600/600?grayscale'"><figcaption>Classic Taper</figcaption></figure>
+  </div>
+</section>
+
+<!-- REELS (video showcase) -->
+<section class="reels wrap" id="reels">
+  <div class="reels-head reveal">
+    <div class="eyebrow">From The Chair</div>
+    <h2 class="h-disp">In <span>Motion.</span></h2>
+  </div>
+  <div class="reel-grid reveal">
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" autoplay loop muted playsinline preload="metadata"></video></figure>
+  </div>
+  <div class="reels-cta reveal">
+    <a class="ig-more js-ig" href="#" aria-label="View more on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      <span>View more on Instagram</span>
+    </a>
   </div>
 </section>
 
