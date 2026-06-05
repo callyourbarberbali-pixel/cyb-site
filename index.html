@@ -158,8 +158,9 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .reels-head{text-align:center;margin-bottom:clamp(14px,2.6vw,28px)}
 .reels-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
 .reels-head h2 span{color:var(--gold)}
-.reel-stage{position:relative;height:clamp(430px,60vw,580px);max-width:1100px;margin:0 auto}
-.reel-card{position:absolute;top:50%;left:50%;width:clamp(212px,23vw,272px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 26px 54px rgba(0,0,0,.55);background:#000;margin:0;transform:translate(-50%,-50%);transition:transform .6s cubic-bezier(.22,.7,.2,1),opacity .6s,filter .6s;cursor:pointer;will-change:transform,opacity}
+.reel-stage{position:relative;height:clamp(440px,64vw,660px);max-width:1180px;margin:0 auto;cursor:grab;touch-action:pan-y}
+.reel-stage:active{cursor:grabbing}
+.reel-card{position:absolute;top:50%;left:50%;width:clamp(212px,29vw,340px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 26px 54px rgba(0,0,0,.55);background:#000;margin:0;transform:translate(-50%,-50%);transition:transform .6s cubic-bezier(.22,.7,.2,1),opacity .6s,filter .6s;cursor:pointer;will-change:transform,opacity}
 .reel-card video{width:100%;height:100%;object-fit:cover;display:block}
 .reel-card[data-pos="0"]{transform:translate(-50%,-50%) scale(1.02);opacity:1;filter:none;z-index:5}
 .reel-card[data-pos="-1"]{transform:translate(calc(-50% - 66%),-50%) scale(.84);opacity:.92;filter:brightness(.72);z-index:4}
@@ -746,10 +747,13 @@ function initReels(){
   }
   function arm(){clearTimeout(timer);if(reduce||!visible)return;timer=setTimeout(()=>go(cur+1),4200);}
   function go(n,user){cur=((n%N)+N)%N;layout();play();arm();}
-  cards.forEach((c,i)=>c.addEventListener("click",()=>{if(i!==cur)go(i,true);}));
-  let sx=0;
-  stage.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;},{passive:true});
-  stage.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1),true);},{passive:true});
+  let dragX=null,moved=false;
+  cards.forEach((c,i)=>c.addEventListener("click",()=>{if(moved)return;if(i!==cur)go(i,true);}));
+  stage.addEventListener("pointerdown",e=>{dragX=e.clientX;moved=false;try{stage.setPointerCapture(e.pointerId);}catch(_){}});
+  stage.addEventListener("pointermove",e=>{if(dragX!==null&&Math.abs(e.clientX-dragX)>6)moved=true;});
+  function endDrag(e){if(dragX===null)return;const dx=(e.clientX||0)-dragX;dragX=null;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1),true);}
+  stage.addEventListener("pointerup",endDrag);
+  stage.addEventListener("pointercancel",()=>{dragX=null;});
   layout();
   if("IntersectionObserver" in window){
     new IntersectionObserver(es=>es.forEach(en=>{visible=en.isIntersecting;if(visible){play();arm();}else{clearTimeout(timer);vids.forEach(v=>{if(v)try{v.pause();}catch(e){}});}}),{threshold:.25}).observe(stage);
