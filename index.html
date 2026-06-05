@@ -220,7 +220,8 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .feat-col:hover .feat-ico::before{background:radial-gradient(circle,rgba(199,154,90,.22),transparent 68%);transform:scale(1.08)}
 .feat-ico svg{width:74px;height:74px;position:relative;z-index:1;transition:transform .45s}
 .feat-col:hover .feat-ico svg{transform:translateY(-4px)}
-.feat-ico img{width:84px;height:84px;object-fit:contain;position:relative;z-index:1}
+.feat-ico img{height:108px;width:auto;max-width:100%;object-fit:contain;position:relative;z-index:1;filter:invert(0.93) sepia(0.18) saturate(1.2);transition:transform .45s}
+.feat-col:hover .feat-ico img{transform:translateY(-4px)}
 .feat-col h3{font-family:var(--f-disp);font-weight:400;letter-spacing:.06em;font-size:1.9rem;color:var(--cream);margin-bottom:14px}
 .feat-col p{color:var(--muted);font-size:1rem;max-width:300px;margin:0 auto 22px}
 .feat-more{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;font-weight:600;color:var(--gold-soft);text-decoration:none;transition:color .3s}
@@ -365,10 +366,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 1 -->
     <div class="feat-col reveal">
       <div class="feat-ico">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="12" r="4.5"/><circle cx="11" cy="36" r="4.5"/>
-          <path d="M14.5 14.5 41 35M14.5 33.5 41 13"/><path d="M41 13l-16 11.5"/>
-        </svg>
+        <img src="images/icon-skull.png" alt="">
       </div>
       <h3>Precision Cuts</h3>
       <p>Sharp fades, clean line-ups and proper beard work. Real barbering done at your place, with the same care you would get in a top chair.</p>
@@ -380,9 +378,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 2 -->
     <div class="feat-col reveal" style="--d:.12s">
       <div class="feat-ico">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 43s14-11 14-23a14 14 0 1 0-28 0c0 12 14 23 14 23z"/><circle cx="24" cy="20" r="5.5"/>
-        </svg>
+        <img src="images/icon-chair.png" alt="">
       </div>
       <h3>We Come To You</h3>
       <p>No traffic and no waiting room. Your barber turns up on time across Ubud with the full kit, ready to set up wherever suits you.</p>
@@ -394,9 +390,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <!-- Column 3 -->
     <div class="feat-col reveal" style="--d:.24s">
       <div class="feat-ico">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 7h17l17 17-17 17L7 24z"/><circle cx="16" cy="16" r="2.8"/>
-        </svg>
+        <img src="images/icon-razor.png" alt="">
       </div>
       <h3>Honest Prices</h3>
       <p>Clear, fixed prices with nothing hidden. Settle up by cash or QRIS once the cut is exactly how you want it.</p>
