@@ -219,11 +219,9 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .feat-head h2{font-family:var(--f-disp);color:var(--sage);font-weight:400;line-height:1;letter-spacing:.04em;font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:54px;max-width:1040px;margin:0 auto}
 .feat-col{text-align:center;display:flex;flex-direction:column;align-items:center}
-.feat-ico{position:relative;width:152px;height:152px;margin:0 auto 28px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
-.feat-ico::before{content:"";position:absolute;inset:14px;border:1px solid var(--line);transform:rotate(45deg);opacity:.4;transition:transform .55s cubic-bezier(.19,.8,.18,1),border-color .45s,opacity .45s}
-.feat-col:hover .feat-ico::before{transform:rotate(45deg) scale(1.18);border-color:var(--gold-soft);opacity:.85}
-.feat-ico img{height:132px;width:auto;max-width:100%;object-fit:contain;position:relative;z-index:1;transition:transform .45s ease}
-.feat-col:hover .feat-ico img{transform:translateY(-5px) scale(1.05)}
+.feat-ico{position:relative;width:152px;height:152px;margin:0 auto 26px;display:flex;align-items:center;justify-content:center}
+.feat-ico img{height:138px;width:auto;max-width:100%;object-fit:contain;transition:transform .5s cubic-bezier(.19,.8,.18,1),filter .5s ease}
+.feat-col:hover .feat-ico img{transform:translateY(-7px) scale(1.06);filter:drop-shadow(0 14px 20px rgba(0,0,0,.55))}
 .feat-col h3{font-family:var(--f-disp);font-weight:400;letter-spacing:.06em;font-size:1.9rem;color:var(--cream);margin-bottom:14px}
 .feat-col p{color:var(--muted);font-size:1rem;max-width:300px;margin:0 auto 26px}
 .feat-more{margin-top:auto;display:inline-flex;align-items:center;gap:9px;font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--gold-soft);text-decoration:none;border:1px solid var(--line);padding:12px 24px;border-radius:999px;background:rgba(199,154,90,.04);transition:color .35s,background .35s,border-color .35s,box-shadow .35s,transform .35s}
@@ -449,8 +447,8 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
       <div class="barber-bio">
-      <p>Years on the floor, thousands of fades, now mobile around Ubud. The kind of barber you'd trust with your hair and your stories.</p>
-      <p>Add a short bio here: where they trained, their signature cut, why they went mobile. People book the person as much as the service.</p>
+      <p>Meet Sunny. Years behind the chair and thousands of fades later, he packed the whole shop into a kit and took it mobile across Ubud. Classic barbering, clean lines, and a finish that actually holds.</p>
+      <p>His thing is the details: fades that blend seamless, beards mapped to your face, and a hot-towel shave that feels like a proper ritual. One client at a time, full focus, and the chair comes to you.</p>
       </div>
       <a href="#" class="book-btn js-book">Book with CYB</a>
     </div>
