@@ -185,6 +185,7 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .svc-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin:8px 0 16px}
 .svc-head p{color:var(--muted);max-width:560px;margin:0 auto}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px 70px;max-width:920px;margin:0 auto}
+@media(min-width:681px){.svc-grid>.svc:last-child:nth-child(odd){grid-column:1 / -1;max-width:calc(50% - 35px);margin-inline:auto}}
 .svc{text-align:center;cursor:pointer;transition:transform .4s}
 .svc:hover{transform:translateY(-7px)}
 .svc .num{font-family:var(--f-disp);font-size:5.4rem;color:var(--gold);line-height:.8;margin-bottom:12px;transition:.4s;display:block;transform:skewX(-9deg)}
