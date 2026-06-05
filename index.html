@@ -15,7 +15,7 @@
 :root{
   /* ---- palette ---- */
   --bg:#000000; --bg-2:#0b0a09; --bg-3:#050403;
-  --gold:#c79a5a; --gold-soft:#ddb87e; --sage:#8c9c79; --sage-soft:#a8b89a;
+  --gold:#c79a5a; --gold-soft:#ddb87e; --sage:#729274; --sage-soft:#8fad91;
   --cream:#ece5d7; --muted:#8d8579; --line:rgba(199,154,90,.25); --maxw:1180px;
   /* ---- type ---- */
   --f-disp:"Bebas Neue",sans-serif;
@@ -51,7 +51,7 @@ header.nav.scrolled .util{max-height:0;padding:0 28px;opacity:0;border-color:tra
 .util .dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);animation:pulse 2.2s infinite}
 .util b{font-weight:500}
 .util .u-short{display:none}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(140,156,121,.55)}70%{box-shadow:0 0 0 9px rgba(140,156,121,0)}100%{box-shadow:0 0 0 0 rgba(140,156,121,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(114,146,116,.55)}70%{box-shadow:0 0 0 9px rgba(114,146,116,0)}100%{box-shadow:0 0 0 0 rgba(114,146,116,0)}}
 .util a:hover{color:var(--gold-soft)}
 .nav-main{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;transition:padding .4s}
 header.nav.scrolled .nav-main{padding:10px 28px}
@@ -83,7 +83,7 @@ header.nav.scrolled .nav-main{padding:10px 28px}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:210px 24px 100px;position:relative;background:#000;overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.24;filter:grayscale(40%)}
 .hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.55) 45%,#000 100%)}
-.hero .aura{position:absolute;inset:-20%;z-index:1;pointer-events:none;background:radial-gradient(40% 35% at 30% 25%,rgba(140,156,121,.1),transparent 60%),radial-gradient(45% 40% at 72% 80%,rgba(199,154,90,.14),transparent 60%);animation:drift 16s ease-in-out infinite alternate}
+.hero .aura{position:absolute;inset:-20%;z-index:1;pointer-events:none;background:radial-gradient(40% 35% at 30% 25%,rgba(114,146,116,.1),transparent 60%),radial-gradient(45% 40% at 72% 80%,rgba(199,154,90,.14),transparent 60%);animation:drift 16s ease-in-out infinite alternate}
 @keyframes drift{from{transform:translate(-3%,-2%) scale(1)}to{transform:translate(4%,3%) scale(1.12)}}
 .hero-inner{position:relative;z-index:2;width:100%;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero .display{max-width:100%}
