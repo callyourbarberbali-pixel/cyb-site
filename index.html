@@ -211,7 +211,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .sec-divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);display:block}
 
 /* RAZOR SCROLL REVEAL */
-.razor-scrub{background:var(--bg);display:flex;justify-content:center;align-items:center;padding:clamp(24px,5vw,70px) 0}
+.razor-scrub{background:var(--bg);display:flex;justify-content:center;align-items:center;padding:clamp(6px,1.6vw,22px) 0}
 .razor-scrub canvas{display:block;width:min(480px,78vw);height:auto;aspect-ratio:1/1}
 
 /* WHY CYB (features) */
@@ -626,7 +626,8 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
     const r=sec.getBoundingClientRect();
     const vh=innerHeight||document.documentElement.clientHeight;
     const cY=r.top+r.height/2;
-    let p=Math.max(0,Math.min(1,(vh-cY)/(vh*0.5)));
+    const div=innerWidth>700?0.34:0.5;
+    let p=Math.max(0,Math.min(1,(vh-cY)/(vh*div)));
     let idx=reduce?FRAMES-1:Math.round(p*(FRAMES-1));
     let im=imgs[idx];
     if(!im||!im.complete||!im.naturalWidth){im=imgs.find(x=>x&&x.complete&&x.naturalWidth);}
