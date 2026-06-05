@@ -155,18 +155,17 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .g-tile:hover::after{border-color:var(--gold)}
 
 /* REELS: coverflow video carousel */
-.reels{background:var(--bg);overflow:hidden;padding-top:clamp(38px,5vw,72px);padding-bottom:clamp(48px,5.5vw,80px)}
+.reels{background:radial-gradient(125% 85% at 50% 0%,#1a1510 0%,#0c0a08 48%,#050403 100%);overflow:hidden;padding-top:clamp(38px,5vw,72px);padding-bottom:clamp(48px,5.5vw,80px)}
 .reels-head{text-align:center;margin-bottom:clamp(14px,2.6vw,28px)}
 .reels-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
 .reels-head h2 span{color:var(--gold)}
-.reel-swiper{width:100%;max-width:1180px;margin:0 auto;padding:10px 0 4px;overflow:visible}
-.reel-swiper .swiper-slide{width:clamp(220px,62vw,300px);height:auto;display:flex;justify-content:center}
-.reel-card{width:100%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);background:#0c0b0a;margin:0}
-.reel-card video{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
+.reel-swiper{width:100%;max-width:1120px;margin:0 auto;padding:6px 0;overflow:hidden}
+.reel-swiper .swiper-slide{height:auto;display:flex;justify-content:center}
+.reel-card{width:100%;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 26px 54px rgba(0,0,0,.55);background:#1a1510;margin:0}
+.reel-card video{width:100%;height:100%;object-fit:cover;display:block;border-radius:20px}
 .reel-swiper .swiper-pagination{position:static;margin-top:clamp(20px,2.6vw,30px)}
 .reel-swiper .swiper-pagination-bullet{background:var(--cream);opacity:.3;width:8px;height:8px;transition:.3s}
 .reel-swiper .swiper-pagination-bullet-active{background:var(--gold);opacity:1;width:24px;border-radius:4px}
-@media(min-width:760px){.reel-swiper .swiper-slide{width:300px}}
 .reels-cta{text-align:center;margin-top:clamp(20px,3vw,38px)}
 .ig-more{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:0;border-radius:999px;color:var(--cream);font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;background:transparent;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;transition:color .3s,box-shadow .3s,background .3s}
 .ig-more svg{width:18px;height:18px}
@@ -725,20 +724,29 @@ function initReels(){
   const el=document.getElementById("reelSwiper");
   if(!el||typeof Swiper==="undefined")return;
   const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  // Ensure enough slides for a clean symmetric loop at 5-per-view
+  const wrap=el.querySelector(".swiper-wrapper");
+  const base=[...wrap.children];
+  while(wrap.children.length<12&&base.length){wrap.appendChild(base[wrap.children.length%base.length].cloneNode(true));}
+  function playActive(sw){
+    el.querySelectorAll(".swiper-slide video").forEach(v=>{try{v.pause();}catch(e){}});
+    const a=(sw&&sw.slides&&sw.slides[sw.activeIndex])||el.querySelector(".swiper-slide-active");
+    const v=a&&a.querySelector("video");
+    if(v&&!reduce){try{v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}}
+  }
   new Swiper(el,{
     effect:"coverflow",
     grabCursor:true,
     centeredSlides:true,
-    slidesPerView:"auto",
+    slidesPerView:3,
     loop:true,
-    loopAdditionalSlides:3,
-    spaceBetween:18,
     speed:600,
-    coverflowEffect:{rotate:0,stretch:0,depth:180,modifier:1.5,scale:1,slideShadows:true},
-    autoplay:reduce?false:{delay:3200,disableOnInteraction:false},
-    pagination:{el:el.querySelector(".swiper-pagination"),clickable:true}
+    coverflowEffect:{rotate:0,stretch:0,depth:130,modifier:1,scale:.86,slideShadows:false},
+    breakpoints:{760:{slidesPerView:5}},
+    autoplay:reduce?false:{delay:3500,disableOnInteraction:false},
+    pagination:{el:el.querySelector(".swiper-pagination"),clickable:true},
+    on:{init:playActive,slideChangeTransitionStart:playActive}
   });
-  el.querySelectorAll("video").forEach(v=>{const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>{});});
 }
 function setMenu(open){nl.classList.toggle("open",open);mb.classList.toggle("open",open);nav.classList.toggle("menu-open",open);if(open)nav.classList.remove("hide");document.body.style.overflow=open?"hidden":"";}
 mb.addEventListener("click",()=>setMenu(!menuOpen()));
