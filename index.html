@@ -625,7 +625,8 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
     if(!canvas.width)return;
     const r=sec.getBoundingClientRect();
     const vh=innerHeight||document.documentElement.clientHeight;
-    let p=Math.max(0,Math.min(1,(vh-r.top)/(vh*0.55)));
+    const cY=r.top+r.height/2;
+    let p=Math.max(0,Math.min(1,(vh-cY)/(vh*0.5)));
     let idx=reduce?FRAMES-1:Math.round(p*(FRAMES-1));
     let im=imgs[idx];
     if(!im||!im.complete||!im.naturalWidth){im=imgs.find(x=>x&&x.complete&&x.naturalWidth);}
