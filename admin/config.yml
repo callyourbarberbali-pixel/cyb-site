@@ -1,9 +1,8 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/cyb-site   # <-- CHANGE to your-username/your-repo-name
+  repo: cybbali/cyb-site
   branch: main
 
-# Where uploaded photos are stored in the repo, and the URL path to them
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
