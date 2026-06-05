@@ -688,8 +688,11 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
     const r=sec.getBoundingClientRect();
     const vh=innerHeight||document.documentElement.clientHeight;
     const cY=r.top+r.height/2;
-    const div=innerWidth>700?0.34:0.5;
-    const p=Math.max(0,Math.min(1,(vh-cY)/(vh*div)));
+    const f=cY/vh; // section center as fraction down the viewport (1=bottom edge)
+    // beginAt: where the scrub starts; lower = starts later on scroll. Desktop delayed.
+    const desk=innerWidth>700;
+    const beginAt=desk?0.82:1.0, endAt=desk?0.48:0.5;
+    const p=Math.max(0,Math.min(1,(beginAt-f)/(beginAt-endAt)));
     return reduce?FRAMES-1:Math.round(p*(FRAMES-1));
   }
   function draw(force){
