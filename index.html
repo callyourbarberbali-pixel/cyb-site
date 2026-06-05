@@ -211,10 +211,10 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 .sec-divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);display:block}
 
 /* RAZOR SCROLL REVEAL */
-.razor-scrub{position:relative;height:220vh;background:var(--bg)}
+.razor-scrub{position:relative;height:160vh;background:var(--bg)}
 .scrub-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
-.razor-scrub canvas{display:block;width:min(560px,88vw);height:auto;aspect-ratio:1/1}
-@media(max-width:700px){.razor-scrub{height:190vh}}
+.razor-scrub canvas{display:block;width:min(660px,94vw);height:auto;aspect-ratio:1/1}
+@media(max-width:700px){.razor-scrub{height:150vh}}
 
 /* WHY CYB (features) */
 .feat{padding:clamp(58px,8vw,104px) 28px;position:relative}
@@ -639,7 +639,7 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
     ctx.drawImage(im,0,0,canvas.width,canvas.height);
   }
   function size(){
-    const disp=Math.min(560,innerWidth*0.88);
+    const disp=Math.min(660,innerWidth*0.94);
     const dpr=Math.min(devicePixelRatio||1,2);
     canvas.width=Math.round(disp*dpr);
     canvas.height=Math.round(disp*dpr);
@@ -650,7 +650,7 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
   for(let i=0;i<FRAMES;i++){
     const im=new Image();
     im.decoding="async";
-    im.src="frames/f_"+pad(i+1)+".png";
+    im.src="frames/f_"+pad(i+1)+".jpg";
     im.onload=()=>{if(!firstReady){firstReady=true;draw();}};
     imgs[i]=im;
   }
