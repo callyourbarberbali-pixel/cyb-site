@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- FONT SET: Bebas Neue (display) + Archivo (body). Swap in :root below to re-skin type. -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <style>
 :root{
@@ -154,18 +155,18 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 .g-tile:hover::after{border-color:var(--gold)}
 
 /* REELS: coverflow video carousel */
-.reels{background:var(--bg);overflow:hidden;padding-top:clamp(38px,5vw,72px);padding-bottom:clamp(38px,5vw,72px)}
-.reels-head{text-align:center;margin-bottom:clamp(12px,2.4vw,24px)}
+.reels{background:var(--bg);overflow:hidden;padding-top:clamp(38px,5vw,72px);padding-bottom:clamp(48px,5.5vw,80px)}
+.reels-head{text-align:center;margin-bottom:clamp(14px,2.6vw,28px)}
 .reels-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px}
 .reels-head h2 span{color:var(--gold)}
-.reel-grid{position:relative;height:clamp(430px,62vw,600px);max-width:1100px;margin:0 auto;overflow:hidden}
-.reel-card{position:absolute;top:50%;left:50%;width:clamp(232px,30vw,360px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);transform:translate(-50%,-50%);transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s,filter .55s;cursor:pointer;background:#0c0b0a;will-change:transform,opacity}
-.reel-card video{width:100%;height:100%;object-fit:cover;display:block}
-.reel-card[data-pos="0"]{transform:translate(-50%,-50%) scale(1.04);opacity:1;filter:none;z-index:5}
-.reel-card[data-pos="-1"]{transform:translate(calc(-50% - 60%),-50%) scale(.84);opacity:.62;filter:brightness(.62) blur(.6px);z-index:3}
-.reel-card[data-pos="1"]{transform:translate(calc(-50% + 60%),-50%) scale(.84);opacity:.62;filter:brightness(.62) blur(.6px);z-index:3}
-.reel-card[data-pos="-2"]{transform:translate(calc(-50% - 108%),-50%) scale(.68);opacity:0;filter:brightness(.4) blur(2px);z-index:1}
-.reel-card[data-pos="2"]{transform:translate(calc(-50% + 108%),-50%) scale(.68);opacity:0;filter:brightness(.4) blur(2px);z-index:1}
+.reel-swiper{width:100%;max-width:1180px;margin:0 auto;padding:10px 0 4px;overflow:visible}
+.reel-swiper .swiper-slide{width:clamp(220px,62vw,300px);height:auto;display:flex;justify-content:center}
+.reel-card{width:100%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 26px 54px rgba(0,0,0,.55);background:#0c0b0a;margin:0}
+.reel-card video{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
+.reel-swiper .swiper-pagination{position:static;margin-top:clamp(20px,2.6vw,30px)}
+.reel-swiper .swiper-pagination-bullet{background:var(--cream);opacity:.3;width:8px;height:8px;transition:.3s}
+.reel-swiper .swiper-pagination-bullet-active{background:var(--gold);opacity:1;width:24px;border-radius:4px}
+@media(min-width:760px){.reel-swiper .swiper-slide{width:300px}}
 .reels-cta{text-align:center;margin-top:clamp(20px,3vw,38px)}
 .ig-more{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:1px solid var(--line);border-radius:999px;color:var(--cream);font-family:var(--f-body);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;transition:.3s}
 .ig-more svg{width:18px;height:18px}
@@ -483,12 +484,16 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <div class="eyebrow">From The Chair</div>
     <h2 class="h-disp">In <span>Motion.</span></h2>
   </div>
-  <div class="reel-grid reveal" id="reelGrid">
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
-    <figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted playsinline preload="auto"></video></figure>
+  <div class="reel-swiper reveal" id="reelSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+      <div class="swiper-slide"><figure class="reel-card"><video src="videos/work.mp4" poster="videos/work-poster.jpg" muted loop playsinline preload="auto"></video></figure></div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
   <div class="reels-cta reveal">
     <a class="ig-more js-ig" href="#" aria-label="View more on Instagram">
@@ -715,50 +720,26 @@ addEventListener("scroll",()=>{const h=document.documentElement;document.getElem
   addEventListener("resize",size);
   size();
 })();
-/* Reels coverflow carousel */
-(function(){
-  const stage=document.getElementById("reelGrid");
-  if(!stage)return;
-  const cards=[...stage.querySelectorAll(".reel-card")];
-  const vids=cards.map(c=>c.querySelector("video"));
-  const N=cards.length;if(!N)return;
+/* Reels coverflow carousel (Swiper) */
+function initReels(){
+  const el=document.getElementById("reelSwiper");
+  if(!el||typeof Swiper==="undefined")return;
   const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-  let cur=0,timer=null;
-  function layout(){
-    cards.forEach((c,i)=>{
-      let off=i-cur;
-      if(off>N/2)off-=N;else if(off<-N/2)off+=N;
-      c.dataset.pos=Math.max(-2,Math.min(2,off));
-    });
-  }
-  function playCur(){
-    vids.forEach((v,i)=>{
-      if(!v)return;
-      if(i===cur){try{v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}}
-      else{try{v.pause();}catch(e){}}
-    });
-  }
-  function arm(){
-    clearTimeout(timer);
-    const v=vids[cur];
-    const dur=(v&&isFinite(v.duration)&&v.duration>0)?v.duration*1000:6000;
-    timer=setTimeout(()=>go(cur+1),Math.min(dur+300,9000));
-  }
-  function go(n){cur=(n%N+N)%N;layout();if(!reduce){playCur();arm();}}
-  cards.forEach((c,i)=>c.addEventListener("click",()=>{if(i!==cur)go(i);}));
-  vids.forEach((v,i)=>{if(v)v.addEventListener("ended",()=>{if(i===cur)go(cur+1);});});
-  let sx=0;
-  stage.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;},{passive:true});
-  stage.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));},{passive:true});
-  layout();
-  if(reduce){const v=vids[0];if(v){try{v.play();}catch(e){}}}
-  else{
-    const io=new IntersectionObserver((ents)=>{
-      ents.forEach(en=>{if(en.isIntersecting){playCur();arm();}else{clearTimeout(timer);vids.forEach(v=>{if(v)try{v.pause();}catch(e){}});}});
-    },{threshold:.3});
-    io.observe(stage);
-  }
-})();
+  new Swiper(el,{
+    effect:"coverflow",
+    grabCursor:true,
+    centeredSlides:true,
+    slidesPerView:"auto",
+    loop:true,
+    loopAdditionalSlides:3,
+    spaceBetween:18,
+    speed:600,
+    coverflowEffect:{rotate:0,stretch:0,depth:180,modifier:1.5,scale:1,slideShadows:true},
+    autoplay:reduce?false:{delay:3200,disableOnInteraction:false},
+    pagination:{el:el.querySelector(".swiper-pagination"),clickable:true}
+  });
+  el.querySelectorAll("video").forEach(v=>{const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>{});});
+}
 function setMenu(open){nl.classList.toggle("open",open);mb.classList.toggle("open",open);nav.classList.toggle("menu-open",open);if(open)nav.classList.remove("hide");document.body.style.overflow=open?"hidden":"";}
 mb.addEventListener("click",()=>setMenu(!menuOpen()));
 /* Smart in-page navigation: smooth-scroll to sections without polluting the URL with #hashes,
@@ -776,5 +757,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape"&&lb)lb.classList.remove("open
 
 fetch("content.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(c=>{if(c)applyContent(c)}).catch(()=>{});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>initReels();</script>
 </body>
 </html>
