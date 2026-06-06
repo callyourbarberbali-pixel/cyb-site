@@ -45,6 +45,7 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(0,0,0,.82);backdrop-
 .hero{position:relative;padding:clamp(64px,12vw,128px) 0 clamp(48px,9vw,96px);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:url("/images/barber.jpg") center/cover;opacity:.22;filter:grayscale(.2)}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4),#000 92%)}
+@media(min-width:761px){.hero::before{background-image:url("/images/area-hero.jpg");background-position:right center;opacity:.55;filter:none}.hero::after{background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.55) 46%,rgba(0,0,0,.12) 100%),linear-gradient(180deg,rgba(0,0,0,.12),#000 96%)}}
 .hero-in{position:relative;z-index:2;max-width:760px}
 .hero h1{font-family:var(--f-disp);color:var(--cream);font-weight:400;line-height:.95;letter-spacing:.03em;font-size:clamp(3rem,9vw,5.6rem);margin:14px 0 18px}
 .hero h1 b{color:var(--sage);font-weight:400}
