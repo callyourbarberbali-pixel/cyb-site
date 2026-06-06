@@ -86,6 +86,45 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a haircut in Bali cost with CYB?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A men's haircut is Rp 300K, beard trim Rp 100K, and a full straight-razor shave Rp 150K. Hair colour and perm start from Rp 600K. Travel to your villa, hotel or home is included within our service areas."}
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas of Bali do you cover?",
+      "acceptedAnswer": {"@type": "Answer", "text": "CYB is a mobile barber covering Canggu, Seminyak, Uluwatu, Nusa Dua and Ubud, plus the surrounding areas. Further out, send us a message and we'll usually make it work."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you really come to my villa or hotel?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sunny arrives with the full kit, fresh blades and everything needed to set up at your villa, hotel room, or home across Bali. No traffic, no waiting room."}
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a mobile barber in Bali?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Booking is done in one message on WhatsApp. Tell us your service, area and preferred time, and we'll confirm. Same-day appointments are often available."}
+    },
+    {
+      "@type": "Question",
+      "name": "What services do you offer?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Haircuts and fades, beard trims, straight-razor shaves, hair colour and perms. Real barbering, done at your place by appointment."}
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should I book?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We take same-day bookings when there's a slot, but for a specific day or time, a message the day before is the safest way to lock it in. Hours are Mon to Fri 10am to 8pm and Sat 10am to 6pm."}
+    }
+  ]
+}
+</script>
+
 <link rel="preload" as="image" href="images/cyb-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -404,6 +443,23 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
   .wa-fab svg{width:30px;height:30px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.mask>span,.badge-wrap,.hero .accent,.hero p.lead,.hero .book-btn{opacity:1!important;transform:none!important}}
+
+/* FAQ */
+.faq{padding:clamp(56px,9vw,104px) 0}
+.faq-head{text-align:center;margin-bottom:clamp(28px,5vw,48px)}
+.faq-head h2{margin-top:10px;font-size:clamp(2.4rem,5vw,3.6rem)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:var(--bg-2);overflow:hidden;transition:border-color .3s}
+.faq-item[open]{border-color:rgba(199,154,90,.5)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;font-family:var(--f-body);font-weight:600;font-size:1.02rem;color:var(--cream)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .q-ico{flex:0 0 auto;width:22px;height:22px;position:relative;transition:transform .3s}
+.faq-item summary .q-ico::before,.faq-item summary .q-ico::after{content:"";position:absolute;background:var(--gold);border-radius:2px}
+.faq-item summary .q-ico::before{top:50%;left:0;right:0;height:2px;transform:translateY(-50%)}
+.faq-item summary .q-ico::after{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);transition:opacity .3s}
+.faq-item[open] summary .q-ico::after{opacity:0}
+.faq-item .faq-a{padding:0 22px 20px;color:var(--muted);line-height:1.65;font-size:.98rem}
+.faq-item .faq-a strong{color:var(--sage-soft);font-weight:600}
 </style>
 </head>
 <body>
@@ -440,8 +496,8 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <img class="badge-logo" src="images/cyb-logo.png" alt="CYB monogram logo" decoding="async">
    </div>
   </div>
-  <div class="accent">Your Personal</div>
-  <h1 class="display mask"><span>Barbershop</span></h1>
+  <div class="accent">Your Personal Mobile</div>
+  <h1 class="display mask"><span>Barbershop in Bali</span></h1>
   <p class="lead">CYB stands for <strong class="cyb-mean">Call Your Barber</strong>, the easiest cut you'll ever book. Send one message and Sunny comes to your home, villa or hotel, fresh fade, crisp line-up and a clean razor finish. No traffic, no waiting room, just your chair and your time.</p>
   <a href="#" class="book-btn js-book">Book an Appointment</a>
   </div>
@@ -540,12 +596,12 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
     <h2 class="h-disp" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:10px">The proof is <span class="w">in the fade.</span></h2>
   </div>
   <div class="g-grid reveal">
-    <figure class="g-tile big"><img src="images/gallery-1.jpg" data-full="images/gallery-1.jpg" alt="Scissor cut" loading="lazy"><figcaption>Scissor Work</figcaption></figure>
-    <figure class="g-tile tall"><img src="images/gallery-5.jpg" data-full="images/gallery-5.jpg" alt="Night cut" loading="lazy"><figcaption>Night Cut</figcaption></figure>
-    <figure class="g-tile tall"><img src="images/gallery-3.jpg" data-full="images/gallery-3.jpg" alt="Clipper fade" loading="lazy"><figcaption>Clipper Fade</figcaption></figure>
-    <figure class="g-tile wide"><img src="images/gallery-6.jpg" data-full="images/gallery-6.jpg" alt="Golden hour cut" loading="lazy"><figcaption>Golden Hour</figcaption></figure>
-    <figure class="g-tile"><img src="images/gallery-2.jpg" data-full="images/gallery-2.jpg" alt="High skin fade" loading="lazy"><figcaption>Skin Fade</figcaption></figure>
-    <figure class="g-tile"><img src="images/gallery-4.jpg" data-full="images/gallery-4.jpg" alt="Beard sculpt" loading="lazy"><figcaption>Beard Sculpt</figcaption></figure>
+    <figure class="g-tile big"><img src="images/gallery-1.jpg" data-full="images/gallery-1.jpg" alt="Scissor haircut by CYB mobile barber in Bali" loading="lazy"><figcaption>Scissor Work</figcaption></figure>
+    <figure class="g-tile tall"><img src="images/gallery-5.jpg" data-full="images/gallery-5.jpg" alt="Evening home-service haircut in Canggu Bali" loading="lazy"><figcaption>Night Cut</figcaption></figure>
+    <figure class="g-tile tall"><img src="images/gallery-3.jpg" data-full="images/gallery-3.jpg" alt="Clipper fade haircut by a mobile barber in Bali" loading="lazy"><figcaption>Clipper Fade</figcaption></figure>
+    <figure class="g-tile wide"><img src="images/gallery-6.jpg" data-full="images/gallery-6.jpg" alt="Men's haircut at a villa in Seminyak Bali" loading="lazy"><figcaption>Golden Hour</figcaption></figure>
+    <figure class="g-tile"><img src="images/gallery-2.jpg" data-full="images/gallery-2.jpg" alt="High skin fade by CYB barber in Uluwatu Bali" loading="lazy"><figcaption>Skin Fade</figcaption></figure>
+    <figure class="g-tile"><img src="images/gallery-4.jpg" data-full="images/gallery-4.jpg" alt="Beard trim and straight-razor sculpt in Ubud Bali" loading="lazy"><figcaption>Beard Sculpt</figcaption></figure>
   </div>
 </section>
 
@@ -637,7 +693,7 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <!-- BARBER -->
 <section class="wrap" id="barber">
   <div class="barber-grid">
-    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg?v=2" alt="Your CYB barber" loading="lazy" decoding="async"><img class="barber-sign" src="images/sunny-signature.png" alt="Sunny" aria-hidden="true" loading="lazy" decoding="async"></figure></div>
+    <div class="reveal"><figure class="barber-figure"><img src="images/barber.jpg?v=2" alt="Sunny, the CYB mobile barber serving Bali" loading="lazy" decoding="async"><img class="barber-sign" src="images/sunny-signature.png" alt="Sunny" aria-hidden="true" loading="lazy" decoding="async"></figure></div>
     <div class="barber-copy reveal" style="--d:.12s">
       <div class="eyebrow">Your Barber</div>
       <h2 class="h-disp">The hands behind CYB.</h2>
@@ -647,6 +703,42 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
       </div>
       <a href="#" class="book-btn js-book">Book with CYB</a>
     </div>
+  </div>
+</section>
+
+<div class="sec-divider"><span></span><i></i><span></span></div>
+
+<!-- FAQ -->
+<section class="faq wrap" id="faq">
+  <div class="faq-head reveal">
+    <div class="eyebrow">Good To Know</div>
+    <h2 class="h-disp">Mobile barber, <span class="w">answered.</span></h2>
+  </div>
+  <div class="faq-list reveal">
+    <details class="faq-item">
+      <summary>How much does a haircut in Bali cost with CYB?<span class="q-ico"></span></summary>
+      <div class="faq-a">A men's <strong>haircut is Rp 300K</strong>, beard trim Rp 100K, and a full straight-razor shave Rp 150K. Hair colour and perm start from Rp 600K. Travel to your villa, hotel or home is included within our service areas, so the price you see is the price you pay.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Which areas of Bali do you cover?<span class="q-ico"></span></summary>
+      <div class="faq-a">CYB is a mobile barber covering <strong>Canggu, Seminyak, Uluwatu, Nusa Dua and Ubud</strong>, plus the surrounding areas. Further out? Send us a message and we'll usually make it work.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Do you really come to my villa or hotel?<span class="q-ico"></span></summary>
+      <div class="faq-a">Yes. Sunny arrives with the full kit, fresh blades and everything needed to set up at <strong>your villa, hotel room, or home</strong> across Bali. No traffic, no waiting room, just your chair and your time.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I book a mobile barber in Bali?<span class="q-ico"></span></summary>
+      <div class="faq-a">Booking is done in one message on <strong>WhatsApp</strong>. Tap any "Book" button on this page, tell us your service, area and preferred time, and we'll confirm. Same-day appointments are often available.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What services do you offer?<span class="q-ico"></span></summary>
+      <div class="faq-a">Haircuts and fades, <strong>beard trims, straight-razor shaves</strong>, hair colour and perms. Real barbering, done at your place by appointment.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How far in advance should I book?<span class="q-ico"></span></summary>
+      <div class="faq-a">Whenever suits you. We take same-day bookings when there's a slot, but for a specific day or time, a message the day before is the safest way to lock it in. Hours are Mon–Fri 10am–8pm and Sat 10am–6pm.</div>
+    </details>
   </div>
 </section>
 
