@@ -330,10 +330,13 @@ section{padding:clamp(44px,7.5vw,104px) 0;position:relative}
 
 /* FOOTER */
 footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
-.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:18px 24px;flex-wrap:wrap}
 .foot-inner .brandmark{font-size:1.85rem}
 .foot-inner .brandmark-badge{width:58px;height:58px}
-.foot-inner small{color:var(--muted);letter-spacing:.06em}
+.foot-nav{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:flex-end}
+.foot-nav a{color:var(--muted);font-size:.92rem;letter-spacing:.05em;transition:color .25s}
+.foot-nav a:hover{color:var(--gold-soft)}
+.foot-inner small{width:100%;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--line);padding-top:18px;margin-top:2px}
 
 /* MOBILE BOOK BAR */
 .book-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;padding:12px 16px;background:rgba(0,0,0,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
@@ -777,6 +780,14 @@ footer{padding:42px 0;border-top:1px solid var(--line);background:#000}
 <footer>
   <div class="wrap foot-inner">
     <span class="brandmark"><span class="brandmark-badge"><img src="images/cyb-logo.png" alt="CYB monogram" loading="lazy" decoding="async"></span> CYB</span>
+    <nav class="foot-nav" aria-label="Areas and guides">
+      <a href="/canggu/">Canggu</a>
+      <a href="/seminyak/">Seminyak</a>
+      <a href="/uluwatu/">Uluwatu</a>
+      <a href="/ubud/">Ubud</a>
+      <a href="/nusa-dua/">Nusa Dua</a>
+      <a href="/blog/">Journal</a>
+    </nav>
     <small>© 2026 CYB Mobile Barbershop · Bali. All rights reserved.</small>
   </div>
 </footer>
