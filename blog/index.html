@@ -63,15 +63,22 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(0,0,0,.82);backdrop-
 .faqs h2{font-family:var(--f-disp);color:var(--sage);font-weight:400;font-size:clamp(1.7rem,4.5vw,2.4rem);margin-bottom:18px}
 .faq-item{border:1px solid var(--line);border-radius:14px;background:var(--bg-2);overflow:hidden;margin-bottom:12px}
 .faq-item[open]{border-color:rgba(199,154,90,.5)}
-.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 20px;font-weight:600;color:var(--cream)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;font-weight:600;color:var(--cream)}
 .faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .ico{flex:0 0 auto;width:20px;height:20px;position:relative}
+.faq-item summary .ico::before,.faq-item summary .ico::after{content:"";position:absolute;background:var(--gold);border-radius:2px}
+.faq-item summary .ico::before{top:50%;left:0;right:0;height:2px;transform:translateY(-50%)}
+.faq-item summary .ico::after{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);transition:opacity .3s}
+.faq-item[open] summary .ico::after{opacity:0}
 .faq-item .a{padding:0 20px 18px;color:var(--muted);line-height:1.65;font-size:.97rem}
 .faq-item .a strong{color:var(--sage-soft);font-weight:700}
+.faq-item .a .price{color:var(--gold-soft);font-weight:700;white-space:nowrap}
+.faq-item .a a{color:var(--gold-soft);font-weight:600;border-bottom:1px solid var(--line)}
+.faq-item .a a:hover{color:var(--gold)}
 .related{border-top:1px solid var(--line);padding:30px 0;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
 .related span{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;width:100%}
 .related a{border:1px solid var(--line);border-radius:40px;padding:9px 18px;color:var(--sage-soft);font-size:.92rem}
 .related a:hover{border-color:var(--gold);color:var(--gold-soft)}
-/* blog index cards */
 .cards{padding:14px 0 50px;display:grid;gap:16px}
 .card{border:1px solid var(--line);border-radius:16px;background:var(--bg-2);padding:26px;transition:border-color .3s,transform .3s}
 .card:hover{border-color:rgba(199,154,90,.55);transform:translateY(-2px)}
