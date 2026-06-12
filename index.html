@@ -805,7 +805,7 @@ const buildLink=s=>"https://wa.me/"+PHONE+"?text="+encodeURIComponent(s?MSG.repl
 const esc=t=>(t==null?"":String(t)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
 function wireLinks(){
-  document.querySelectorAll(".js-book").forEach(el=>{el.href=buildLink(el.dataset.svc);el.target="_blank";el.rel="noopener"});
+  document.querySelectorAll(".js-book").forEach(el=>{el.href=buildLink(el.dataset.svc);el.target="_blank";el.rel="noopener";el.addEventListener("click",()=>{if(typeof gtag==="function")gtag('event','conversion',{'send_to':'AW-18217451646/sx83CIKL37ocEP6A4e5D'});});});
   document.querySelectorAll(".js-ig").forEach(el=>{el.href="https://instagram.com/"+IG;el.target="_blank";el.rel="noopener";if(!el.querySelector("svg"))el.textContent="@"+IG});
 }
 function bindLightbox(){
