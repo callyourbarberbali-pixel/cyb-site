@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TCQQV3T2Y4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TCQQV3T2Y4');
+  gtag('config', 'AW-18217451646');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Mobile Barber in Bali · CYB · Call Your Barber</title>
+<meta name="description" content="Book your mobile barber in Bali. Pick your service, area and time, and Sunny comes to your villa, hotel or home in Canggu, Seminyak, Uluwatu, Nusa Dua or Ubud. Travel included." />
+<link rel="canonical" href="https://cybbali.com/book/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<link rel="icon" href="../images/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="../images/favicon-192.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png?v=3">
+<meta name="theme-color" content="#0b0a09">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#000000; --bg-2:#0b0a09; --bg-3:#050403;
+    --gold:#c79a5a; --gold-soft:#ddb87e; --sage:#729274; --sage-soft:#8fad91;
+    --cream:#ece5d7; --muted:#8d8579; --line:rgba(199,154,90,.25);
+    --wa:#25d366; --maxw:760px;
+    --f-disp:"Bebas Neue",sans-serif; --f-body:"Archivo",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:120px}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--gold);color:#000}
+
+  /* Top bar */
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(0,0,0,.86);backdrop-filter:blur(10px);z-index:40}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .badge{width:50px;height:50px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:0 0 auto}
+  .brand .badge img{width:74%;height:74%;object-fit:contain}
+  .brand .name{font-family:var(--f-disp);font-size:1.8rem;letter-spacing:.2em;color:var(--cream)}
+  .back{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-soft);border:1px solid var(--line);padding:9px 16px;border-radius:999px;transition:.3s}
+  .back:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+
+  /* Hero */
+  .head{text-align:center;padding:46px 22px 30px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.34em;font-size:.7rem;color:var(--gold);font-weight:600}
+  .head h1{font-family:var(--f-disp);color:var(--sage);font-size:clamp(2.6rem,9vw,4.2rem);line-height:.95;letter-spacing:.04em;margin:14px 0 12px;font-weight:400}
+  .head h1 b{color:var(--cream);font-weight:400}
+  .head p{max-width:520px;margin:0 auto;color:var(--cream);opacity:.85;font-size:1rem}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .step-label{display:flex;align-items:center;gap:12px;margin:38px 0 18px;font-family:var(--f-disp);font-size:1.7rem;letter-spacing:.05em;color:var(--cream)}
+  .step-label .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--bg-2);border:1px solid var(--gold);color:var(--gold-soft);font-family:var(--f-body);font-size:.9rem;font-weight:600;flex:0 0 auto}
+
+  /* Service cards */
+  .services{display:grid;grid-template-columns:1fr;gap:12px}
+  .svc{display:flex;align-items:center;gap:16px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--bg-2);cursor:pointer;transition:border-color .25s,background .25s,transform .12s;position:relative}
+  .svc:hover{border-color:var(--gold)}
+  .svc:active{transform:scale(.995)}
+  .svc.sel{border-color:var(--sage);background:linear-gradient(180deg,rgba(114,146,116,.12),rgba(114,146,116,.04))}
+  .svc .ic{width:52px;height:52px;border-radius:13px;background:var(--bg-3);display:flex;align-items:center;justify-content:center;flex:0 0 auto;border:1px solid var(--line)}
+  .svc .ic svg{width:26px;height:26px;stroke:var(--gold-soft);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .svc .ic svg.fill{fill:var(--gold-soft);stroke:none}
+  .svc.sel .ic{border-color:var(--sage)}
+  .svc.sel .ic svg{stroke:var(--sage-soft)}
+  .svc.sel .ic svg.fill{fill:var(--sage-soft);stroke:none}
+
+  /* Fresha-style date & time picker */
+  .picker{border:1px solid var(--line);border-radius:18px;background:var(--bg-2);padding:18px}
+  .pk-head{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-soft);font-weight:600;margin-bottom:12px}
+  .datestrip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+  .datestrip::-webkit-scrollbar{display:none}
+  .dcard{flex:0 0 auto;width:62px;padding:12px 0;border:1px solid var(--line);border-radius:13px;background:var(--bg-3);text-align:center;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .dcard:hover{border-color:var(--gold)}
+  .dcard.sel{background:linear-gradient(150deg,#8fb191,#5f7d61);border-color:var(--gold);color:#08160b;box-shadow:0 0 0 1px rgba(199,154,90,.55),0 8px 20px rgba(114,146,116,.3)}
+  .dcard.sel .dow,.dcard.sel .dmon{opacity:1}
+  .dcard .dow{font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+  .dcard .dnum{font-family:var(--f-disp);font-size:1.55rem;line-height:1;margin-top:3px}
+  .dcard .dmon{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-top:2px}
+  .slots{display:flex;flex-direction:column;gap:12px;max-height:420px;overflow-y:auto;padding-right:4px}
+  .slots::-webkit-scrollbar{width:8px}
+  .slots::-webkit-scrollbar-thumb{background:var(--bg-3);border-radius:8px;border:1px solid var(--line)}
+  .slot{display:block;width:100%;padding:19px 22px;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--bg-3);color:var(--cream);font-size:1.02rem;letter-spacing:.02em;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .slot:hover{border-color:var(--gold)}
+  .slot.sel{background:linear-gradient(150deg,#8fb191,#5f7d61);border-color:var(--gold);color:#08160b;font-weight:700;box-shadow:0 0 0 1px rgba(199,154,90,.55),0 8px 20px rgba(114,146,116,.28)}
+  .svc .info{flex:1;min-width:0}
+  .svc .info h3{font-size:1.06rem;font-weight:600;color:var(--cream);letter-spacing:.01em}
+  .svc .info .meta{font-size:.82rem;color:var(--muted);margin-top:3px}
+  .svc .price{text-align:right;flex:0 0 auto}
+  .svc .price .amt{font-family:var(--f-disp);font-size:1.55rem;color:var(--gold-soft);letter-spacing:.04em;line-height:1}
+  .svc .price .cur{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+  .svc .check{position:absolute;top:12px;left:52px;width:22px;height:22px;border-radius:50%;border:2px solid var(--bg-2);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s;background:var(--sage);z-index:2}
+  .svc.sel .check{opacity:1;transform:scale(1)}
+  .svc .check svg{width:12px;height:12px;stroke:#04130a;stroke-width:3.4;fill:none}
+
+  /* Form */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-soft);margin-bottom:8px;font-weight:600}
+  .field input,.field select,.field textarea{width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:14px 15px;color:var(--cream);font-family:var(--f-body);font-size:1rem;transition:border-color .25s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+  .field textarea{resize:vertical;min-height:74px}
+  select option{background:#0b0a09;color:var(--cream)}
+  .hint{font-size:.78rem;color:var(--muted);margin-top:6px}
+  .feehint{color:var(--gold-soft);border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin-top:10px;background:rgba(199,154,90,.06)}
+
+  /* Summary sticky bar */
+  .bar{position:fixed;bottom:0;left:0;right:0;background:rgba(5,4,3,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:14px 22px;z-index:50}
+  .bar .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .bar .tot{line-height:1.2}
+  .bar .tot .lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+  .bar .tot .val{font-family:var(--f-disp);font-size:1.9rem;color:var(--gold-soft);letter-spacing:.04em}
+  .bar .tot .val small{font-size:.8rem;color:var(--muted);font-family:var(--f-body);letter-spacing:0}
+  .wa-btn{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#04130a;font-weight:700;font-size:.92rem;letter-spacing:.02em;padding:15px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .3s;text-align:center}
+  .wa-btn:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(37,211,102,.3)}
+  .wa-btn:disabled{background:#1d3b2a;color:#6f8a7b;cursor:not-allowed;box-shadow:none;transform:none}
+  .wa-btn svg{width:19px;height:19px;fill:currentColor;flex:0 0 auto}
+
+  .note{text-align:center;color:var(--muted);font-size:.82rem;margin:30px auto 0;max-width:520px}
+  .note b{color:var(--sage-soft)}
+
+  @media(max-width:560px){
+    .grid2{grid-template-columns:1fr}
+    .svc .price .amt{font-size:1.3rem}
+    .bar .tot .val{font-size:1.6rem}
+    .wa-btn{padding:14px 18px;font-size:.85rem}
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="badge"><img src="../images/cyb-logo.png" alt="CYB Mobile Barber Bali" /></span>
+      <span class="name">CYB</span>
+    </a>
+    <a class="back" href="/">Back to site</a>
+  </header>
+
+  <section class="head">
+    <div class="eyebrow">Call Your Barber · Bali</div>
+    <h1>Book <b>Your Cut</b></h1>
+    <p>Pick your service, area and time. Sunny comes to your villa, hotel or home with the full kit. Travel included.</p>
+  </section>
+
+  <div class="wrap">
+
+    <div class="step-label"><span class="n">1</span> Choose your service</div>
+    <div class="services" id="services">
+      <!-- Haircut -->
+      <div class="svc" data-name="Haircut" data-price="300000">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+        <div class="info"><h3>Haircut</h3><div class="meta">Cut &amp; fade · approx 45 min</div></div>
+        <div class="price"><div class="amt">300k</div><div class="cur">IDR</div></div>
+        <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </div>
+      <!-- Beard -->
+      <div class="svc" data-name="Beard Trim" data-price="100000">
+        <div class="ic"><svg class="fill" viewBox="0 0 24 24"><path d="M12 12.6c-.9-1.3-2.3-2.1-4-2.1-1.7 0-2.8.8-3.9 1.3-.7.3-1.5.5-2.4.5C1.7 8.8 4.6 6.7 7.6 6.7c1.9 0 3.4.8 4.4 2.1 1-1.3 2.5-2.1 4.4-2.1 3 0 5.9 2.1 5.9 5.6-.9 0-1.7-.2-2.4-.5-1.1-.5-2.2-1.3-3.9-1.3-1.7 0-3.1.8-4 2.1z"/></svg></div>
+        <div class="info"><h3>Beard Trim</h3><div class="meta">Shape &amp; line up · approx 20 min</div></div>
+        <div class="price"><div class="amt">100k</div><div class="cur">IDR</div></div>
+        <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </div>
+      <!-- Full Shave -->
+      <div class="svc" data-name="Full Shave" data-price="150000">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h10v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><line x1="14" y1="6.5" x2="21" y2="6.5"/><line x1="9" y1="12" x2="9" y2="21"/></svg></div>
+        <div class="info"><h3>Full Shave</h3><div class="meta">Straight-razor · approx 30 min</div></div>
+        <div class="price"><div class="amt">150k</div><div class="cur">IDR</div></div>
+        <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </div>
+      <!-- Hair Colour -->
+      <div class="svc" data-name="Hair Colour" data-price="600000" data-from="1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3s5 6 5 10a5 5 0 0 1-10 0c0-4 5-10 5-10z"/></svg></div>
+        <div class="info"><h3>Hair Colour</h3><div class="meta">From · approx 90 min</div></div>
+        <div class="price"><div class="amt">600k</div><div class="cur">from</div></div>
+        <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </div>
+      <!-- Hair Perm -->
+      <div class="svc" data-name="Hair Perm" data-price="600000" data-from="1">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 8c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0"/><path d="M3 14c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0"/></svg></div>
+        <div class="info"><h3>Hair Perm</h3><div class="meta">From · approx 90 min</div></div>
+        <div class="price"><div class="amt">600k</div><div class="cur">from</div></div>
+        <span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </div>
+    </div>
+
+    <div class="step-label"><span class="n">2</span> Your details</div>
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your name" autocomplete="name" />
+    </div>
+    <div class="field">
+      <label for="area">Area in Bali</label>
+      <select id="area">
+        <option value="">Select your area</option>
+        <option>Canggu</option>
+        <option>Seminyak</option>
+        <option>Uluwatu</option>
+        <option>Nusa Dua</option>
+        <option>Ubud</option>
+        <option value="other">Other (I'll send my location)</option>
+      </select>
+      <p class="hint feehint" id="areaFee" style="display:none">Just so you know: outside Canggu, Seminyak, Uluwatu, Nusa Dua &amp; Ubud, a small travel fee may apply. We'll confirm it with you on WhatsApp first.</p>
+    </div>
+    <div class="field">
+      <label for="place">Villa / hotel name</label>
+      <input type="text" id="place" placeholder="Where should Sunny come?" />
+    </div>
+
+    <div class="step-label"><span class="n">3</span> Pick a date &amp; time</div>
+    <div class="picker">
+      <div class="pk-head">Select a date</div>
+      <div class="datestrip" id="datestrip"></div>
+      <div class="pk-head" style="margin-top:22px">Pick a time</div>
+      <div class="slots" id="slots"></div>
+    </div>
+    <div class="field" style="margin-top:22px">
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" placeholder="Anything Sunny should know? Style, group size, etc."></textarea>
+    </div>
+    <p class="hint">Don't worry about the exact time, we'll confirm it with you on WhatsApp.</p>
+
+    <p class="note">Tap <b>Confirm on WhatsApp</b> and your booking details get sent straight to Sunny. He replies fast to lock it in. <b>Travel is included across our main areas.</b></p>
+  </div>
+
+  <div class="bar">
+    <div class="inner">
+      <div class="tot">
+        <div class="lab">Total</div>
+        <div class="val" id="total">0k <small id="fromnote"></small></div>
+      </div>
+      <button class="wa-btn" id="confirm" disabled>
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg>
+        <span id="btnlabel">Select a service</span>
+      </button>
+    </div>
+  </div>
+
+<script>
+  var WA = "6289670119008";
+  var selected = [];
+  var selDate = "", selTime = "";
+
+  // Build date strip (next 14 days)
+  (function(){
+    var strip = document.getElementById('datestrip');
+    var dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    var mons = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var today = new Date();
+    for(var i=0;i<14;i++){
+      var d = new Date(today); d.setDate(today.getDate()+i);
+      var card = document.createElement('div');
+      card.className = 'dcard';
+      var label = i===0 ? 'Today' : dows[d.getDay()];
+      card.innerHTML = '<div class="dow">'+label+'</div><div class="dnum">'+d.getDate()+'</div><div class="dmon">'+mons[d.getMonth()]+'</div>';
+      card.dataset.val = dows[d.getDay()]+', '+d.getDate()+' '+mons[d.getMonth()];
+      card.addEventListener('click', function(){
+        document.querySelectorAll('.dcard').forEach(function(c){c.classList.remove('sel');});
+        this.classList.add('sel'); selDate = this.dataset.val;
+      });
+      strip.appendChild(card);
+    }
+  })();
+
+  // Build time slots as pills
+  (function(){
+    var box = document.getElementById('slots');
+    for(var h=10; h<22; h++){
+      ['00','30'].forEach(function(m){
+        var ampm = h<12?'AM':'PM'; var hr = h<=12?h:h-12; if(h===12) hr=12;
+        var label = hr+':'+m+' '+ampm;
+        var s = document.createElement('div');
+        s.className='slot'; s.textContent=label; s.dataset.val=label;
+        s.addEventListener('click', function(){
+          document.querySelectorAll('.slot').forEach(function(c){c.classList.remove('sel');});
+          this.classList.add('sel'); selTime=this.dataset.val;
+        });
+        box.appendChild(s);
+      });
+    }
+  })();
+
+  function fmt(n){ return Math.round(n/1000) + 'k'; }
+
+  function render(){
+    var total = 0, hasFrom = false;
+    selected.forEach(function(s){ total += s.price; if(s.from) hasFrom = true; });
+    document.getElementById('total').childNodes[0].nodeValue = (selected.length ? fmt(total) : '—') + ' ';
+    document.getElementById('fromnote').textContent = hasFrom ? 'from' : '';
+    var btn = document.getElementById('confirm');
+    var lbl = document.getElementById('btnlabel');
+    if(selected.length===0){ btn.disabled = true; lbl.textContent = 'Select a service'; }
+    else { btn.disabled = false; lbl.textContent = 'Confirm on WhatsApp'; }
+  }
+
+  document.querySelectorAll('.svc').forEach(function(card){
+    card.addEventListener('click', function(){
+      var name = card.dataset.name, price = parseInt(card.dataset.price,10), from = card.dataset.from==='1';
+      var i = selected.findIndex(function(s){ return s.name===name; });
+      if(i>-1){ selected.splice(i,1); card.classList.remove('sel'); }
+      else { selected.push({name:name, price:price, from:from}); card.classList.add('sel'); }
+      render();
+    });
+  });
+
+  // Show travel-fee note when "Other" area is chosen
+  document.getElementById('area').addEventListener('change', function(){
+    document.getElementById('areaFee').style.display = (this.value==='other') ? 'block' : 'none';
+  });
+
+  document.getElementById('confirm').addEventListener('click', function(){
+    if(selected.length===0) return;
+    var name = (document.getElementById('name').value||'').trim();
+    var areaSel = document.getElementById('area');
+    var areaVal = areaSel.value;
+    var area = areaVal ? areaSel.options[areaSel.selectedIndex].text : '';
+    var place = (document.getElementById('place').value||'').trim();
+    var date = selDate;
+    var time = selTime;
+    var notes = (document.getElementById('notes').value||'').trim();
+
+    var total = 0, hasFrom = false;
+    var lines = selected.map(function(s){ total += s.price; if(s.from) hasFrom=true; return '• '+s.name+' ('+fmt(s.price)+(s.from?'+':'')+')'; });
+
+    var msg = "Hi CYB! I'd like to book:\n" + lines.join("\n");
+    msg += "\nTotal: " + fmt(total) + (hasFrom? '+':'') ;
+    if(name) msg += "\nName: " + name;
+    if(area) msg += "\nArea: " + area;
+    if(areaVal==='other') msg += "\n(Outside main areas, happy to confirm any small travel fee first)";
+    if(place) msg += "\nPlace: " + place;
+    if(date) msg += "\nDate: " + date;
+    if(time) msg += "\nTime: " + time;
+    if(notes) msg += "\nNotes: " + notes;
+    msg += "\n\n(Sent from cybbali.com booking)";
+
+    if(typeof gtag==="function"){ gtag('event','conversion',{'send_to':'AW-18217451646/sx83CIKL37ocEP6A4e5D'}); }
+
+    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank", "noopener");
+  });
+
+  render();
+</script>
+</body>
+</html>
