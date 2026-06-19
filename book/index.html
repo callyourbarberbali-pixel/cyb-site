@@ -94,6 +94,8 @@
   .slot{display:block;width:100%;padding:19px 22px;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--bg-3);color:var(--cream);font-size:1.02rem;letter-spacing:.02em;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
   .slot:hover{border-color:var(--gold)}
   .slot.sel{background:linear-gradient(150deg,#8fb191,#5f7d61);border-color:var(--gold);color:#08160b;font-weight:700;box-shadow:0 0 0 1px rgba(199,154,90,.55),0 8px 20px rgba(114,146,116,.28)}
+  .dcard.dis{opacity:.28;cursor:not-allowed;pointer-events:none}
+  .slot.dis{opacity:.28;cursor:not-allowed;pointer-events:none}
   .svc .info{flex:1;min-width:0}
   .svc .info h3{font-size:1.06rem;font-weight:600;color:var(--cream);letter-spacing:.01em}
   .svc .info .meta{font-size:.82rem;color:var(--muted);margin-top:3px}
@@ -228,7 +230,7 @@
       <label for="notes">Notes (optional)</label>
       <textarea id="notes" placeholder="Anything Sunny should know? Style, group size, etc."></textarea>
     </div>
-    <p class="hint">Don't worry about the exact time, we'll confirm it with you on WhatsApp.</p>
+    <p class="hint">Same-day bookings need about 4 hours' notice. Don't worry about the exact time, we'll confirm it with you on WhatsApp.</p>
 
     <p class="note">Tap <b>Confirm on WhatsApp</b> and your booking details get sent straight to Sunny. He replies fast to lock it in. <b>Travel is included across our main areas.</b></p>
   </div>
@@ -249,44 +251,85 @@
 <script>
   var WA = "6289670119008";
   var selected = [];
-  var selDate = "", selTime = "";
+  var selDate = "", selTime = "", selDateObj = null;
 
-  // Build date strip (next 14 days)
+  var dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var mons = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Current time in Bali (UTC+8) as wall-clock, regardless of visitor's device timezone
+  function baliNow(){
+    return new Date(new Date().toLocaleString('en-US', {timeZone:'Asia/Makassar'}));
+  }
+  var BNOW = baliNow();
+  // Earliest bookable moment: 4 hours from now (Bali time)
+  var CUTOFF = new Date(BNOW.getTime() + 4*60*60*1000);
+
+  function slotLabel(h,m){
+    var ampm = h<12?'AM':'PM'; var hr = h<=12?h:h-12; if(h===12) hr=12;
+    return hr+':'+(m<10?'0'+m:m)+' '+ampm;
+  }
+  function dayLastSlot(dateObj){
+    var d = new Date(dateObj); d.setHours(21,30,0,0); return d;
+  }
+
+  // Render time pills for a given day, greying out anything inside the 4h lead window
+  function renderSlots(dateObj){
+    var box = document.getElementById('slots');
+    box.innerHTML = '';
+    selTime = '';
+    for(var h=10; h<22; h++){
+      for(var mi=0; mi<2; mi++){
+        var m = mi===0 ? 0 : 30;
+        var sdt = new Date(dateObj); sdt.setHours(h,m,0,0);
+        var label = slotLabel(h,m);
+        var s = document.createElement('div');
+        s.className = 'slot';
+        s.textContent = label;
+        if(sdt < CUTOFF){
+          s.className += ' dis';
+        } else {
+          s.dataset.val = label;
+          s.addEventListener('click', function(){
+            document.querySelectorAll('.slot').forEach(function(c){c.classList.remove('sel');});
+            this.classList.add('sel'); selTime = this.dataset.val;
+          });
+        }
+        box.appendChild(s);
+      }
+    }
+  }
+
+  // Build date strip (next 14 days, Bali time)
   (function(){
     var strip = document.getElementById('datestrip');
-    var dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    var mons = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var today = new Date();
+    var firstCard = null;
     for(var i=0;i<14;i++){
-      var d = new Date(today); d.setDate(today.getDate()+i);
+      var d = new Date(BNOW); d.setDate(BNOW.getDate()+i); d.setHours(0,0,0,0);
+      var disabled = dayLastSlot(d) < CUTOFF; // entire day already inside the lead window
       var card = document.createElement('div');
-      card.className = 'dcard';
+      card.className = 'dcard' + (disabled ? ' dis' : '');
       var label = i===0 ? 'Today' : dows[d.getDay()];
       card.innerHTML = '<div class="dow">'+label+'</div><div class="dnum">'+d.getDate()+'</div><div class="dmon">'+mons[d.getMonth()]+'</div>';
       card.dataset.val = dows[d.getDay()]+', '+d.getDate()+' '+mons[d.getMonth()];
-      card.addEventListener('click', function(){
-        document.querySelectorAll('.dcard').forEach(function(c){c.classList.remove('sel');});
-        this.classList.add('sel'); selDate = this.dataset.val;
-      });
+      card.dataset.ts = d.getTime();
+      if(!disabled){
+        card.addEventListener('click', function(){
+          document.querySelectorAll('.dcard').forEach(function(c){c.classList.remove('sel');});
+          this.classList.add('sel');
+          selDate = this.dataset.val;
+          selDateObj = new Date(parseInt(this.dataset.ts,10));
+          renderSlots(selDateObj);
+        });
+        if(!firstCard) firstCard = card;
+      }
       strip.appendChild(card);
     }
-  })();
-
-  // Build time slots as pills
-  (function(){
-    var box = document.getElementById('slots');
-    for(var h=10; h<22; h++){
-      ['00','30'].forEach(function(m){
-        var ampm = h<12?'AM':'PM'; var hr = h<=12?h:h-12; if(h===12) hr=12;
-        var label = hr+':'+m+' '+ampm;
-        var s = document.createElement('div');
-        s.className='slot'; s.textContent=label; s.dataset.val=label;
-        s.addEventListener('click', function(){
-          document.querySelectorAll('.slot').forEach(function(c){c.classList.remove('sel');});
-          this.classList.add('sel'); selTime=this.dataset.val;
-        });
-        box.appendChild(s);
-      });
+    // Auto-select the first bookable day so available times show right away
+    if(firstCard){
+      firstCard.classList.add('sel');
+      selDate = firstCard.dataset.val;
+      selDateObj = new Date(parseInt(firstCard.dataset.ts,10));
+      renderSlots(selDateObj);
     }
   })();
 
