@@ -119,11 +119,11 @@ POSTS = {
 <h2>CYB price list</h2>
 <p>CYB is a mobile barber covering Canggu, Seminyak, Uluwatu, Nusa Dua and Ubud. Travel within the service area is included, so the price you see is what you pay:</p>
 <table class="ptable"><thead><tr><th>Service</th><th style="text-align:right">Price</th></tr></thead><tbody>
-<tr><td>Haircut</td><td class="price">Rp 300K</td></tr>
-<tr><td>Beard Trim</td><td class="price">Rp 100K</td></tr>
-<tr><td>Full Shave</td><td class="price">Rp 150K</td></tr>
-<tr><td>Hair Colour</td><td class="price">From Rp 600K</td></tr>
-<tr><td>Hair Perm</td><td class="price">From Rp 600K</td></tr>
+<tr><td>Haircut</td><td class="price">Rp 500K</td></tr>
+<tr><td>Beard Trim</td><td class="price">Rp 200K</td></tr>
+<tr><td>Full Shave</td><td class="price">Rp 300K</td></tr>
+<tr><td>Hair Colour</td><td class="price">From Rp 1M</td></tr>
+<tr><td>Hair Perm</td><td class="price">From Rp 1M</td></tr>
 </tbody></table>
 <h2>What's <b>included?</b></h2>
 <p>With a mobile barber, the price should cover travel, setup, the consultation and the cut itself, with no surprise add-ons. At CYB, travel inside the service area is built into the price. Further out, a small extra may apply, which is always agreed before you book.</p>
@@ -134,7 +134,7 @@ POSTS = {
 """,
     "faq": [
       ("Is a haircut in Bali cheap?", "It can be. Local barbershops charge as little as Rp 35,000, while expat-focused and mobile barbers charge Rp 150,000 to 350,000 for a more polished cut with consistent results."),
-      ("How much is a good fade in Bali?", "For a proper skin fade with a clean line-up, expect Rp 150,000 to 350,000 at a quality barber. CYB charges Rp 300,000 with travel to your villa or hotel included."),
+      ("How much is a good fade in Bali?", "For a proper skin fade with a clean line-up, expect Rp 150,000 to 350,000 at a quality barber. CYB charges Rp 500,000 with travel to your villa or hotel included."),
       ("Do mobile barbers cost more?", "Usually a little, because you're getting a private session at your own place with no travel or waiting on your end. With CYB, travel included means no surprise add-ons."),
     ],
   },
@@ -161,7 +161,7 @@ POSTS = {
 <p>Bali traffic is the main reason. A 15-minute trip can easily become 45 minutes each way on a scooter in the heat. A mobile barber gives you back that time, plus a private, unhurried session on your own schedule, with your own music going.</p>
 """,
     "faq": [
-      ("How much does a mobile barber in Bali cost?", "At CYB a men's haircut is Rp 300,000 with travel included, a beard trim is Rp 100,000 and a full straight-razor shave is Rp 150,000."),
+      ("How much does a mobile barber in Bali cost?", "At CYB a men's haircut is Rp 500,000 with travel included, a beard trim is Rp 200,000 and a full straight-razor shave is Rp 300,000."),
       ("Do you bring everything for the haircut?", "Yes. The barber arrives with clippers, scissors, fresh blades, products and everything needed to set up at your villa, hotel or home."),
       ("How do I book a barber to my villa in Bali?", "Send one message on WhatsApp with your service, your address and a preferred time. Same-day appointments are often available."),
     ],
@@ -188,7 +188,7 @@ POSTS = {
 """,
     "faq": [
       ("Where can I get a haircut in Canggu?", "You'll find local shops and expat-focused barbershops around Berawa, Batu Bolong and Pererenan. For convenience, CYB is a mobile barber that comes to your villa or hotel anywhere in Canggu."),
-      ("How much is a haircut in Canggu?", "Expat-focused barbershops charge around Rp 150,000 to 350,000. CYB charges Rp 300,000 with travel to your door included."),
+      ("How much is a haircut in Canggu?", "Expat-focused barbershops charge around Rp 150,000 to 350,000. CYB charges Rp 500,000 with travel to your door included."),
       ("Can a barber come to my villa in Canggu?", "Yes. CYB covers Berawa, Batu Bolong, Pererenan and Echo Beach. Send one WhatsApp message to book a cut at your place."),
     ],
   },

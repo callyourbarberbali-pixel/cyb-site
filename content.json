@@ -8,11 +8,11 @@
   ],
   "areas": ["Nusa Dua", "Uluwatu", "Seminyak", "Canggu", "Ubud", "& around"],
   "services": [
-    {"name": "Haircut", "price": "Rp 300K", "description": "Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave. Travel included."},
-    {"name": "Beard Trim", "price": "Rp 100K", "description": "Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm."},
-    {"name": "Full Shave", "price": "Rp 150K", "description": "A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise."},
-    {"name": "Hair Colour", "price": "From Rp 600K", "description": "Custom colour, from a full dye to subtle grey blending, matched to your tone and applied for a natural, even finish."},
-    {"name": "Hair Perm", "price": "From Rp 600K", "description": "Texture and curl built to suit your hair, from soft waves to defined curls, with a finish made to last."}
+    {"name": "Haircut", "price": "Rp 500K", "description": "Consultation, a sharp scissor or clipper cut and style with premium products, finished with a clean neck shave. Travel included."},
+    {"name": "Beard Trim", "price": "Rp 200K", "description": "Shape-up and straight-razor edging, mapped to your face and finished with beard oil or balm."},
+    {"name": "Full Shave", "price": "Rp 300K", "description": "A traditional straight-razor shave with warm pre-shave oil and a cooling balm. Close, smooth and precise."},
+    {"name": "Hair Colour", "price": "From Rp 1M", "description": "Custom colour, from a full dye to subtle grey blending, matched to your tone and applied for a natural, even finish."},
+    {"name": "Hair Perm", "price": "From Rp 1M", "description": "Texture and curl built to suit your hair, from soft waves to defined curls, with a finish made to last."}
   ],
   "gallery": [
     {"image": "images/gallery-1.jpg", "label": "Scissor Work"},
